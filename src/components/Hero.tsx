@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink, Github, Mail, Zap, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ExternalLink, Github, Linkedin, Mail, Zap, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -96,6 +96,17 @@ export const Hero: React.FC = () => {
                 aria-label="GitHub Profile"
               >
                 <Github className="w-5 h-5" />
+              </a>
+
+              {/* LinkedIn Link */}
+              <a
+                href={t.meta.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center p-3.5 rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-sm"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="w-5 h-5" />
               </a>
 
               {/* Direct Mail */}

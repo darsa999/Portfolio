@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -35,14 +35,44 @@ export const Footer: React.FC = () => {
             {t.footer.builtWith}
           </div>
 
-          {/* Back to top button */}
-          <button
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:-translate-y-0.5"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
+          {/* Social Links & Back to top button */}
+          <div className="flex items-center gap-2.5">
+            <a
+              href={t.meta.upworkProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Upwork Profile"
+              className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/20 text-xs font-bold transition-all"
+            >
+              <span>Upwork</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={t.meta.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:-translate-y-0.5"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a
+              href={t.meta.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:-translate-y-0.5"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <button
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 shadow-sm transition-all hover:-translate-y-0.5"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
 
         </div>
       </div>
