@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ShieldCheck, Gauge, Workflow, Dumbbell, Music, Cpu, Sparkles, MapPin, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Gauge, Workflow, Dumbbell, Music, Cpu, Sparkles, Award, Brain, MapPin, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const About: React.FC = () => {
@@ -20,6 +20,14 @@ export const About: React.FC = () => {
 
   const getHobbyIcon = (name: string) => {
     switch (name) {
+      case 'ShieldCheck':
+        return <ShieldCheck className="w-5 h-5 text-emerald-500" />;
+      case 'Award':
+        return <Award className="w-5 h-5 text-emerald-500" />;
+      case 'Sparkles':
+        return <Sparkles className="w-5 h-5 text-indigo-500" />;
+      case 'Brain':
+        return <Brain className="w-5 h-5 text-indigo-500" />;
       case 'Dumbbell':
         return <Dumbbell className="w-5 h-5 text-rose-500" />;
       case 'Music':

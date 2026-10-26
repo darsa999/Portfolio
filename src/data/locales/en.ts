@@ -99,18 +99,18 @@ export const en: LocaleContent = {
     hobbiesTitle: 'Personal Discipline & Interests',
     hobbies: [
       {
-        title: 'Strength Training & Fitness',
-        desc: '3-4 workouts per week fostering unwavering discipline, peak energy levels, and mental clarity.',
-        icon: 'Dumbbell',
+        title: 'Engineering Discipline & Mindset',
+        desc: 'High work ethic, attention to detail, and a persistent drive for problem-solving. Strong ownership of deadlines, continuous self-improvement, and delivering dependable results.',
+        icon: 'ShieldCheck',
       },
       {
-        title: 'Music & Instrumental Composition',
-        desc: 'Avid fan of progressive rock and metal; composing original instrumental arrangements in spare time.',
-        icon: 'Music',
+        title: 'Passion for AI & Emerging Tech',
+        desc: 'Deepening focus on artificial intelligence, autonomous agentic workflows, cutting-edge LLMs, and their practical implementation into real-world applications.',
+        icon: 'Sparkles',
       },
       {
-        title: 'Tech Tinkering & AI Research',
-        desc: 'Experimenting with hardware, custom automation scripts, and benchmarking new LLM tooling.',
+        title: 'Tech Experiments & AI Research',
+        desc: 'Writing automation scripts, experimenting with new LLM models, and hands-on testing of agentic tools.',
         icon: 'Cpu',
       },
     ],
