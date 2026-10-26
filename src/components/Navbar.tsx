@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
@@ -9,6 +9,7 @@ export const Navbar: React.FC = () => {
   const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,32 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    }
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { href: '#about', label: t.nav.about },
@@ -29,8 +56,9 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || mobileMenuOpen
           ? 'bg-white/85 dark:bg-slate-950/85 backdrop-blur-md shadow-sm border-b border-slate-200/80 dark:border-slate-800/80 py-3'
           : 'bg-transparent py-5'
       }`}
@@ -42,7 +70,7 @@ export const Navbar: React.FC = () => {
             href="#"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform shrink-0">
               MD
             </div>
             <div>
@@ -74,10 +102,13 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right Action Tools: Language, Theme & Upwork CTA */}
+          {/* Right Action Tools: Desktop Language & Theme Switchers, Upwork CTA & Mobile Menu Button */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <LanguageSwitcher />
-            <ThemeToggle />
+            {/* Desktop Language & Theme Switchers (hidden on mobile < md) */}
+            <div className="hidden md:flex items-center gap-2 sm:gap-2.5">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
 
             {/* Upwork Direct CTA Button */}
             <a
@@ -93,10 +124,11 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Menu Hamburger Button */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
-              className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="lg:hidden p-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -111,7 +143,8 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 shadow-xl"
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 shadow-xl overflow-hidden"
           >
             <nav className="flex flex-col gap-1.5" aria-label="Mobile Navigation">
               {navLinks.map((link) => (
@@ -119,16 +152,25 @@ export const Navbar: React.FC = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
+                  className="px-4 py-3 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
+
+              {/* Mobile Language & Theme Switchers (< md viewports) */}
+              <div className="md:hidden pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2.5">
+                <LanguageSwitcher isMobile />
+                <ThemeToggle isMobile />
+              </div>
+
+              {/* Mobile Upwork Direct CTA */}
               <div className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
                 <a
                   href={t.meta.upworkProfileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-teal-600 shadow-md shadow-emerald-600/20"
                 >
                   <Briefcase className="w-4 h-4" />
