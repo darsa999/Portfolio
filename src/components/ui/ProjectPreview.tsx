@@ -39,7 +39,7 @@ export const ProjectPreview = ({
     );
   }
 
-  const base = `/images/projects/${project.id}`;
+  const base = `${import.meta.env.BASE_URL}images/projects/${project.id}`;
   return (
     <div className={`overflow-hidden bg-slate-200 dark:bg-slate-800 ${className}`}>
       <div aria-hidden="true" className="flex items-center gap-1.5 bg-slate-200 px-3 py-2 dark:bg-slate-800">

@@ -5,6 +5,9 @@ import { ArrowRight, ExternalLink, Mail, Zap, Sparkles, CheckCircle2 } from 'luc
 import { siteConfig } from '../config/site';
 import { GithubIcon, LinkedinIcon } from './icons';
 
+// Public files resolve against Vite's base, so the site also works when served from a sub-path.
+const IMG = `${import.meta.env.BASE_URL}images/`;
+
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
 
@@ -153,16 +156,16 @@ export const Hero: React.FC = () => {
                 <picture>
                   <source
                     type="image/avif"
-                    srcSet="/images/profile-320.avif 320w, /images/profile-640.avif 640w"
+                    srcSet={`${IMG}profile-320.avif 320w, ${IMG}profile-640.avif 640w`}
                     sizes="(min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
                   />
                   <source
                     type="image/webp"
-                    srcSet="/images/profile-320.webp 320w, /images/profile-640.webp 640w"
+                    srcSet={`${IMG}profile-320.webp 320w, ${IMG}profile-640.webp 640w`}
                     sizes="(min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
                   />
                   <img
-                    src="/images/profile-640.jpg"
+                    src={`${IMG}profile-640.jpg`}
                     alt={t.hero.photoAlt}
                     width={640}
                     height={641}

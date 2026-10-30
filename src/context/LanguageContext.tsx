@@ -64,7 +64,11 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ initialLocal
     const url = new URL(window.location.href);
     if (locale === defaultLocale) url.searchParams.delete('lang');
     else url.searchParams.set('lang', locale);
-    window.history.replaceState(window.history.state, '', url);
+    try {
+      window.history.replaceState(window.history.state, '', url);
+    } catch {
+      // Sandboxed frames may refuse history updates; the language still switches.
+    }
   }, [locale, t]);
 
   const value = useMemo(() => ({ locale, setLocale, t }), [locale, setLocale, t]);
