@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { X, ExternalLink, CheckCircle2, TrendingUp, AlertCircle, Sparkles } from 'lucide-react';
 import { m } from 'framer-motion';
 import { GithubIcon } from './icons';
+import { ProjectPreview } from './ui/ProjectPreview';
 
 interface CaseStudyModalProps {
   project: ProjectCaseStudy;
@@ -96,6 +97,9 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
               {project.title}
             </h2>
             <p className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">{project.tagline}</p>
+            <p className="mt-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              {t.projects.roleLabel}: <span className="text-slate-800 dark:text-slate-200">{project.role}</span>
+            </p>
           </div>
 
           <button
@@ -111,6 +115,14 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
 
         {/* Modal Scrollable Body */}
         <div className="space-y-8 overflow-y-auto p-6 sm:p-8">
+          <ProjectPreview
+            project={project}
+            privateNote={t.projects.privateNote}
+            screenshotLabel={t.projects.screenshotLabel}
+            sizes="(min-width: 768px) 720px, 100vw"
+            className="rounded-2xl border border-slate-200 dark:border-slate-800"
+          />
+
           {/* Metrics Highlight Row */}
           <div className="grid grid-cols-3 gap-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-center dark:border-slate-800 dark:bg-slate-800/50">
             {project.metrics.map((metric) => (

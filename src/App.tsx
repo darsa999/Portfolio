@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion';
 import { useLanguage } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
@@ -11,9 +11,19 @@ import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Services } from './components/Services';
+import { Process } from './components/Process';
+import { MobileCtaBar } from './components/MobileCtaBar';
 
 export const App: React.FC = () => {
   const { t } = useLanguage();
+
+  // The browser tries to jump to `#contact` before React has rendered the section, so deep links
+  // shared from the nav (e.g. /?lang=en#projects) would otherwise always open at the top.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
 
   return (
     // `strict` makes any stray full `motion.*` import a runtime error, so only the lighter `m.*` + domAnimation ship.
@@ -29,17 +39,21 @@ export const App: React.FC = () => {
         <Navbar />
 
         <main id="main" tabIndex={-1} className="outline-none">
+          {/* Ordered the way a client decides: what you offer → proof → how we'd work → who you are */}
           <Hero />
+          <Services />
+          <Projects />
+          <Process />
           <UpworkBanner />
           <About />
-          <TechStack />
           <Experience />
-          <Projects />
+          <TechStack />
           <Education />
           <Contact />
         </main>
 
         <Footer />
+        <MobileCtaBar />
       </MotionConfig>
     </LazyMotion>
   );

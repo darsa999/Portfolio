@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Phone, Copy, Check, ExternalLink, MessageSquare, Sparkles, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, Copy, Check, ExternalLink, MessageSquare, Send, Sparkles, ShieldCheck } from 'lucide-react';
 import { m } from 'framer-motion';
 import { SectionHeading } from './ui/SectionHeading';
 import { siteConfig } from '../config/site';
@@ -96,6 +96,15 @@ export const Contact: React.FC = () => {
             <div>
               <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">{t.contact.directContact}</h3>
               <p className="mb-6 text-xs text-slate-500 sm:text-sm dark:text-slate-400">{t.contact.orDirectMessage}</p>
+
+              {/* Opens the visitor's mail app with a short brief template, so first messages arrive with scope, timeline and budget */}
+              <a
+                href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(t.contact.briefSubject)}&body=${encodeURIComponent(t.contact.briefBody)}`}
+                className="mb-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-3.5 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-brand-600 dark:bg-white dark:text-slate-900 dark:hover:bg-brand-400"
+              >
+                <Send className="h-4 w-4" aria-hidden="true" />
+                <span>{t.contact.briefCta}</span>
+              </a>
 
               <div className="space-y-4">
                 {/* Email Item with Copy Button */}

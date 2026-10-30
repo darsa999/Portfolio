@@ -6,6 +6,7 @@ import { ExternalLink, ArrowUpRight, Sparkles } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
 import { GithubIcon } from './icons';
 import { SectionHeading } from './ui/SectionHeading';
+import { ProjectPreview } from './ui/ProjectPreview';
 
 export const Projects: React.FC = () => {
   const { t } = useLanguage();
@@ -38,20 +39,38 @@ export const Projects: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xs transition-all duration-300 hover:border-brand-500/40 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
             >
+              <button
+                type="button"
+                tabIndex={-1}
+                aria-hidden="true"
+                onClick={() => setSelectedProject(project)}
+                className="block w-full cursor-pointer border-b border-slate-200/80 text-left dark:border-slate-800"
+              >
+                <ProjectPreview
+                  project={project}
+                  privateNote={t.projects.privateNote}
+                  screenshotLabel={t.projects.screenshotLabel}
+                  sizes="(min-width: 1024px) 400px, (min-width: 640px) 90vw, 100vw"
+                />
+              </button>
+
               <div className="p-6 sm:p-8">
                 {/* Category & Year Header */}
                 <div className="mb-4 flex items-center justify-between gap-2">
                   <span className="rounded-full border border-brand-500/20 bg-brand-500/10 px-3 py-1 text-xs font-bold text-brand-600 dark:text-brand-400">
                     {project.category}
                   </span>
-                  <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">{project.year}</span>
+                  <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">{project.year}</span>
                 </div>
 
                 {/* Title & Tagline */}
                 <h3 className="mb-2 text-2xl font-black tracking-tight text-slate-900 transition-colors group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400">
                   {project.title}
                 </h3>
-                <p className="mb-6 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{project.tagline}</p>
+                <p className="mb-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{project.tagline}</p>
+                <p className="mb-6 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  {t.projects.roleLabel}: <span className="text-slate-800 dark:text-slate-200">{project.role}</span>
+                </p>
 
                 {/* Measurable Impact Metrics Strip */}
                 <div className="mb-6 grid grid-cols-3 gap-2 rounded-2xl border border-slate-100 bg-slate-50 p-3.5 text-center dark:border-slate-800 dark:bg-slate-800/60">
@@ -60,7 +79,7 @@ export const Projects: React.FC = () => {
                       <span className="block text-sm font-black text-slate-900 sm:text-base dark:text-white">
                         {metric.value}
                       </span>
-                      <span className="block truncate text-[10px] font-medium text-slate-500 sm:text-[11px] dark:text-slate-400">
+                      <span className="block text-[10px] leading-tight font-medium text-slate-500 sm:text-[11px] dark:text-slate-400">
                         {metric.label}
                       </span>
                     </div>

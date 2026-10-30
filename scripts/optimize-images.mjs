@@ -34,6 +34,23 @@ await sharp(src)
   .toFile(jpg);
 await report(jpg);
 
+// Case-study screenshots: every assets/projects/<id>.jpg becomes public/images/projects/<id>-{400,800}.{avif,webp}.
+const projectsSrc = path.join(root, 'assets', 'projects');
+const projectsOut = path.join(outDir, 'projects');
+await fs.mkdir(projectsOut, { recursive: true });
+for (const file of await fs.readdir(projectsSrc)) {
+  const id = path.parse(file).name;
+  for (const width of [400, 800]) {
+    const base = sharp(path.join(projectsSrc, file)).resize({ width, withoutEnlargement: true });
+    const avif = path.join(projectsOut, `${id}-${width}.avif`);
+    const webp = path.join(projectsOut, `${id}-${width}.webp`);
+    await base.clone().avif({ quality: 55, effort: 6 }).toFile(avif);
+    await base.clone().webp({ quality: 78 }).toFile(webp);
+    await report(avif);
+    await report(webp);
+  }
+}
+
 // Open Graph / Twitter card, 1200x630.
 const photoSize = 420;
 const photo = await sharp(src)

@@ -89,6 +89,7 @@ export interface LocaleContent {
     upworkProfile: string;
   };
   nav: {
+    services: string;
     about: string;
     experience: string;
     skills: string;
@@ -125,6 +126,22 @@ export interface LocaleContent {
     quickStats: {
       value: string;
       label: string;
+    }[];
+  };
+  services: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    cta: string;
+    items: (IconCard & { deliverables: string[] })[];
+  };
+  process: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    steps: {
+      title: string;
+      desc: string;
     }[];
   };
   upworkSection: {
@@ -192,6 +209,9 @@ export interface LocaleContent {
     solutionTitle: string;
     contributionsTitle: string;
     closeCaseStudy: string;
+    roleLabel: string;
+    privateNote: string;
+    screenshotLabel: string;
     items: ProjectCaseStudy[];
   };
   education: {
@@ -232,6 +252,9 @@ export interface LocaleContent {
     phoneLabel: string;
     linkedinLabel: string;
     locationNote: string;
+    briefCta: string;
+    briefSubject: string;
+    briefBody: string;
   };
   footer: {
     rights: string;

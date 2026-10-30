@@ -7,7 +7,16 @@ import { m, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import { useActiveSection } from '../hooks/useActiveSection';
 
-const SECTION_IDS = ['about', 'skills', 'experience', 'projects', 'education', 'contact'] as const;
+const SECTION_IDS = [
+  'services',
+  'projects',
+  'process',
+  'about',
+  'experience',
+  'skills',
+  'education',
+  'contact',
+] as const;
 
 export const Navbar: React.FC = () => {
   const { t } = useLanguage();
@@ -58,11 +67,11 @@ export const Navbar: React.FC = () => {
 
   // Same order as the sections appear on the page.
   const navLinks = [
-    { id: 'about', label: t.nav.about },
-    { id: 'skills', label: t.nav.skills },
-    { id: 'experience', label: t.nav.experience },
+    { id: 'services', label: t.nav.services },
     { id: 'projects', label: t.nav.projects },
-    { id: 'education', label: t.nav.education },
+    { id: 'about', label: t.nav.about },
+    { id: 'experience', label: t.nav.experience },
+    { id: 'skills', label: t.nav.skills },
     { id: 'contact', label: t.nav.contact },
   ];
 

@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-slate-200 bg-white py-12 transition-colors dark:border-slate-800/80 dark:bg-slate-950">
+    <footer className="border-t border-slate-200 bg-white pt-12 pb-28 transition-colors sm:pb-12 dark:border-slate-800/80 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Brand Info */}

@@ -22,6 +22,7 @@ export const en: LocaleContent = {
     upworkProfile: 'Upwork profile',
   },
   nav: {
+    services: 'Services',
     about: 'About',
     experience: 'Experience',
     skills: 'Tech Stack',
@@ -48,19 +49,90 @@ export const en: LocaleContent = {
     name: 'Mamuka Darsalia',
     roleHeadline: 'Lead Full-Stack & Automation Engineer · AI-Augmented Developer',
     subheadline:
-      'I engineer high-performance web applications using React 19, Tailwind CSS v4, and modern TypeScript. By leveraging AI-Augmented engineering (Google Antigravity, Claude Code) and intelligent workflow automations (n8n, Python), I deliver production-ready software 3-5x faster with uncompromising code quality.',
+      'I build fast, reliable web applications and automate the repetitive work behind them — from React and TypeScript front-ends to n8n and Python pipelines. AI-augmented tooling (Claude Code, Google Antigravity) lets me ship in small, frequent milestones without cutting corners on code quality.',
     ctaPrimary: 'Hire on Upwork',
     ctaSecondary: 'Explore Case Studies',
     ctaGithub: 'GitHub Profile',
     ctaContact: 'Schedule a Call',
     availableBadge: 'Open for Upwork & Remote Contracts',
-    trustBadge: 'Full Escrow Protection on Upwork · 100% Milestone Delivery Guarantee',
+    trustBadge: 'Payments protected by Upwork escrow · Milestone-based delivery',
     photoAlt: 'Portrait of Mamuka Darsalia',
     quickStats: [
       { value: '6+', label: 'Years of Engineering Experience' },
       { value: '3-5x', label: 'Faster Delivery via AI Augmentation' },
-      { value: '100%', label: 'Commitment to Core Web Vitals' },
+      { value: '3', label: 'Working languages: EN · KA · RU' },
       { value: '70%', label: 'Manual Ops Reduced via Automation' },
+    ],
+  },
+  services: {
+    eyebrow: 'Services',
+    title: 'What I Can Build for You',
+    subtitle: 'Pick the closest fit — every engagement starts with a free 15-minute call to scope it properly.',
+    cta: 'Discuss your project',
+    items: [
+      {
+        icon: 'Layout',
+        title: 'Web Apps & Dashboards',
+        desc: 'Client portals, admin panels, booking flows and internal tools built with React, TypeScript and Tailwind CSS.',
+        deliverables: [
+          'Responsive UI from your Figma — or I design it',
+          'REST API and third-party integrations',
+          'Deployed on Vercel with a preview link for every change',
+        ],
+      },
+      {
+        icon: 'Rocket',
+        title: 'Landing Pages & Business Websites',
+        desc: 'Fast, SEO-ready marketing sites that load instantly on mobile and turn visitors into leads.',
+        deliverables: [
+          'Core Web Vitals and SEO metadata from day one',
+          'Multilingual content (EN / KA / RU)',
+          'Analytics and lead forms wired up',
+        ],
+      },
+      {
+        icon: 'Workflow',
+        title: 'Business Process Automation',
+        desc: 'n8n and Python pipelines that take repetitive work off your team: lead capture, CRM sync, social posting, reports and scraping.',
+        deliverables: [
+          'Mapping of your current manual workflow',
+          'Self-hosted or cloud n8n with error alerts',
+          'Documentation so your team can maintain it',
+        ],
+      },
+      {
+        icon: 'Bot',
+        title: 'AI Features & LLM Integrations',
+        desc: 'Practical AI inside your product or operations — summarisation, content generation and assistants connected to your data.',
+        deliverables: [
+          'OpenAI, Anthropic or Gemini API integration',
+          'Prompt design and guardrails for reliable output',
+          'Cost and quality monitoring',
+        ],
+      },
+    ],
+  },
+  process: {
+    eyebrow: 'How We Work',
+    title: 'A Simple, Transparent Process',
+    subtitle: 'You always know what is being built, when it ships, and what it costs.',
+    steps: [
+      {
+        title: 'Free intro call',
+        desc: '15 minutes to understand your goals, constraints and timeline — no commitment.',
+      },
+      {
+        title: 'Proposal & milestones',
+        desc: 'A written scope with milestones and a fixed price or hourly estimate, contracted through Upwork.',
+      },
+      {
+        title: 'Build & weekly demos',
+        desc: 'Work ships in small milestones with live preview links and regular progress updates.',
+      },
+      {
+        title: 'Launch & handover',
+        desc: 'Deployment, documentation and full transfer of source code and IP. Post-launch support on request.',
+      },
     ],
   },
   upworkSection: {
@@ -93,7 +165,7 @@ export const en: LocaleContent = {
     ],
     ctaButton: 'Hire Me on Upwork Today',
     secondaryCta: 'Book 15-Min Free Consultation',
-    guaranteeText: '✓ 100% Satisfaction Guarantee · ✓ Fixed-Price or Hourly via Upwork Escrow Protection',
+    guaranteeText: '✓ Fixed-price or hourly contracts · ✓ Payments protected by Upwork escrow',
   },
   about: {
     eyebrow: 'Profile & Mindset',
@@ -359,12 +431,15 @@ export const en: LocaleContent = {
     solutionTitle: 'The Architectural Solution',
     contributionsTitle: 'My Key Contributions',
     closeCaseStudy: 'Close case study',
+    roleLabel: 'My role',
+    privateNote: 'Internal company system — no public demo',
+    screenshotLabel: 'screenshot',
     items: [
       {
         id: 'gestlife',
         title: 'Gestlife Platform',
-        tagline: 'Ultra-fast, modern service presentation & management web platform',
-        category: 'Full-Stack / Modern Web',
+        tagline: 'Surrogacy program platform for a FemTech agency',
+        category: 'FemTech / Lead Generation',
         featured: true,
         year: '2025 - 2026',
         role: 'Lead Architect & Frontend Developer',
@@ -374,12 +449,12 @@ export const en: LocaleContent = {
         metrics: [
           { label: 'Lighthouse Score', value: '99/100' },
           { label: 'First Contentful Paint', value: '< 0.4s' },
-          { label: 'UI Reusability', value: '100%' },
+          { label: 'Country programs', value: '2' },
         ],
         problem:
-          'The client required a state-of-the-art web platform to showcase services and key metrics with zero perceptible latency, flawless mobile responsiveness, and clean code capable of scaling to future modules.',
+          'The agency needed to explain a sensitive, legally complex service to intended parents — across separate Georgia and Greece programs — and turn anxious first-time visitors into qualified enquiries.',
         solution:
-          'Engineered an ultra-lean single-page application built on React 19 and Tailwind CSS v4 powered by Vite. Implemented atomic components, fully accessible semantic markup, and edge delivery on Vercel.',
+          'Built a fast React 19 + Tailwind CSS v4 platform with a program switcher (Georgia / Greece), a tap-to-reveal "myths vs. facts" explainer, a 30-second eligibility quiz that pre-qualifies leads, and legal context surfaced right on the first screen.',
         myContribution: [
           'Architected the entire project structure using React 19, strict TypeScript, and Tailwind CSS v4.',
           'Designed responsive layouts ensuring fluid typography and intuitive component hierarchies.',
@@ -515,18 +590,22 @@ export const en: LocaleContent = {
       'Flexible milestone or weekly hourly contracts with full time tracking',
       'Comprehensive NDA & IP transfer guarantee upon project completion',
     ],
-    responseTime: 'Typically responds in under 2 hours',
+    responseTime: 'Usually replies within 2–4 hours',
     emailLabel: 'Email Address',
     phoneLabel: 'Phone / WhatsApp',
     linkedinLabel: 'LinkedIn Profile',
     copyEmail: 'Copy email',
     copyFailed: 'Could not copy — please select the address manually.',
     locationNote: 'Location: Tbilisi, Georgia (UTC+4) · Open to asynchronous & overlapping hours',
+    briefCta: 'Email me a project brief',
+    briefSubject: 'Project inquiry via portfolio',
+    briefBody:
+      'Hi Mamuka,\n\nProject / company:\nWhat I need built or automated:\nDesired timeline:\nBudget range:\nLinks (Figma, current site, docs):\n\nThanks!',
   },
   footer: {
     rights: 'All rights reserved.',
     builtWith: 'Engineered with React 19, Tailwind CSS v4, TypeScript, and Framer Motion.',
-    topRatedBadge: 'Upwork Top-Tier Ready · AI-Augmented Engineering',
+    topRatedBadge: 'Available on Upwork · AI-Augmented Engineering',
     backToTop: 'Back to top',
   },
 };
