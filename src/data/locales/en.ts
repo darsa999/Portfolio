@@ -1,16 +1,25 @@
 import { LocaleContent } from '../../types';
 
 export const en: LocaleContent = {
+  seo: {
+    title: 'Mamuka Darsalia | Lead Full-Stack & Automation Engineer',
+    description:
+      'Mamuka Darsalia — Lead Full-Stack Engineer based in Tbilisi. React 19, Tailwind CSS v4, TypeScript, n8n automation and AI-augmented development. Available for hire on Upwork.',
+  },
   meta: {
     name: 'Mamuka Darsalia',
     title: 'Lead Full-Stack & Automation Engineer · AI-Augmented Developer',
     location: 'Tbilisi, Georgia (Available Worldwide / UTC+4)',
     status: 'Available for Upwork Contracts & Full-Stack Projects',
-    upworkProfileUrl: 'https://www.upwork.com/freelancers/~019edc26589108bdab',
-    githubUrl: 'https://github.com/darsa999',
-    linkedinUrl: 'https://www.linkedin.com/in/mamuka-darsalia-665505318/',
-    email: 'darsaliamamuka9@gmail.com',
-    phone: '+995 555 97 97 08',
+    city: 'Tbilisi, Georgia',
+    timezone: 'UTC+4',
+  },
+  common: {
+    available: 'Available',
+    skipToContent: 'Skip to main content',
+    githubProfile: 'GitHub profile',
+    linkedinProfile: 'LinkedIn profile',
+    upworkProfile: 'Upwork profile',
   },
   nav: {
     about: 'About',
@@ -21,18 +30,32 @@ export const en: LocaleContent = {
     contact: 'Contact',
     hireUpwork: 'Hire on Upwork',
     viewWork: 'View Work',
+    brandTagline: 'Lead Full-Stack · AI-Augmented',
+    mainNavLabel: 'Main navigation',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    selectLanguage: 'Select language',
+  },
+  theme: {
+    dark: 'Dark mode',
+    light: 'Light mode',
+    switchToLight: 'Switch to light',
+    switchToDark: 'Switch to dark',
   },
   hero: {
     badge: '🚀 Available for High-Impact Upwork Projects & Direct Hire',
     greeting: 'Hello, I am',
     name: 'Mamuka Darsalia',
     roleHeadline: 'Lead Full-Stack & Automation Engineer · AI-Augmented Developer',
-    subheadline: 'I engineer high-performance web applications using React 19, Tailwind CSS v4, and modern TypeScript. By leveraging AI-Augmented engineering (Google Antigravity, Claude Code) and intelligent workflow automations (n8n, Python), I deliver production-ready software 3-5x faster with uncompromising code quality.',
+    subheadline:
+      'I engineer high-performance web applications using React 19, Tailwind CSS v4, and modern TypeScript. By leveraging AI-Augmented engineering (Google Antigravity, Claude Code) and intelligent workflow automations (n8n, Python), I deliver production-ready software 3-5x faster with uncompromising code quality.',
     ctaPrimary: 'Hire on Upwork',
     ctaSecondary: 'Explore Case Studies',
     ctaGithub: 'GitHub Profile',
     ctaContact: 'Schedule a Call',
     availableBadge: 'Open for Upwork & Remote Contracts',
+    trustBadge: 'Full Escrow Protection on Upwork · 100% Milestone Delivery Guarantee',
+    photoAlt: 'Portrait of Mamuka Darsalia',
     quickStats: [
       { value: '6+', label: 'Years of Engineering Experience' },
       { value: '3-5x', label: 'Faster Delivery via AI Augmentation' },
@@ -43,7 +66,8 @@ export const en: LocaleContent = {
   upworkSection: {
     badge: '💎 UPWORK CLIENT ADVANTAGE',
     title: 'Why Global Clients Partner With Me on Upwork',
-    description: 'As an AI-Augmented Senior Full-Stack Engineer, I deliver more than just lines of code — I build high-ROI business assets. From day one, you get rapid iterations, transparent communication, and production-tested architecture that scales smoothly.',
+    description:
+      'As an AI-Augmented Senior Full-Stack Engineer, I deliver more than just lines of code — I build high-ROI business assets. From day one, you get rapid iterations, transparent communication, and production-tested architecture that scales smoothly.',
     perksTitle: 'The Client Guarantee:',
     perks: [
       {
@@ -72,12 +96,27 @@ export const en: LocaleContent = {
     guaranteeText: '✓ 100% Satisfaction Guarantee · ✓ Fixed-Price or Hourly via Upwork Escrow Protection',
   },
   about: {
+    eyebrow: 'Profile & Mindset',
     title: 'About Me',
     subtitle: 'Background, Engineering Philosophy, and How I Deliver Value',
     bioParagraphs: [
       'I am an innovation-focused Lead Full-Stack & Frontend Engineer with 6 years of hands-on experience designing modern web applications, robust modular architectures, and scalable business automations.',
       'I specialize in AI-Augmented Development workflows (Google Antigravity, Claude Code), which allows me to accelerate the entire software development lifecycle by 3-5x while preserving rigorous architectural standards. My core stack includes React 19, Tailwind CSS v4, TypeScript, and Angular, backed by extensive experience in Python pipelines and n8n orchestration.',
       'Currently, I serve as Lead Full-Stack & Automation Engineer at Invest Medical Georgia, where I architected the company’s digital platform from scratch and built automated pipelines for multi-channel social media distribution, customer acquisition, and web data scraping.',
+    ],
+    highlights: [
+      'React 19 & Tailwind CSS v4 Specialist',
+      'AI-Augmented Development (3-5x Velocity)',
+      'n8n, Python & Workflow Automation',
+      'Fluent in English, Georgian & Russian',
+    ],
+    overviewTitle: 'Quick Overview',
+    overview: [
+      { label: 'Location', value: 'Tbilisi, Georgia' },
+      { label: 'Total Experience', value: '6+ Years' },
+      { label: 'Current Role', value: 'Lead Full-Stack Eng.' },
+      { label: 'Upwork Status', value: 'Available Now', live: true },
+      { label: 'Timezone', value: 'UTC+4 (Flexible)' },
     ],
     coreValues: [
       {
@@ -116,6 +155,8 @@ export const en: LocaleContent = {
     ],
   },
   skills: {
+    eyebrow: 'Mastery & Tools',
+    coreTag: 'Core',
     title: 'Technical Stack & Capabilities',
     subtitle: 'Engineered for modern performance, rapid iteration, and business automation',
     aiCallout: {
@@ -123,14 +164,34 @@ export const en: LocaleContent = {
       title: '3-5x Faster Development Lifecycle with Google Antigravity & Claude Code',
       desc: 'By integrating autonomous agentic workflows directly into my daily engineering cycle, system architecture, scaffolding, testing, and refactoring happen in fractions of standard agency time with superior code clarity.',
     },
+    velocity: {
+      title: '⚡ Velocity Metric',
+      primary: '3-5x Faster Time-to-Market',
+      secondary: 'Near-Zero Architectural Regression',
+    },
     categories: [
       {
         title: 'Frontend Architecture',
         icon: 'Layout',
         skills: [
-          { name: 'React 19', level: 'Expert', featured: true, description: 'Server Components, Actions, Modern Hooks' },
-          { name: 'Tailwind CSS v4', level: 'Expert', featured: true, description: 'High-performance CSS engine, tokenized design' },
-          { name: 'TypeScript', level: 'Advanced', featured: true, description: 'Strict typing, robust generic models' },
+          {
+            name: 'React 19',
+            level: 'Expert',
+            featured: true,
+            description: 'Server Components, Actions, Modern Hooks',
+          },
+          {
+            name: 'Tailwind CSS v4',
+            level: 'Expert',
+            featured: true,
+            description: 'High-performance CSS engine, tokenized design',
+          },
+          {
+            name: 'TypeScript',
+            level: 'Advanced',
+            featured: true,
+            description: 'Strict typing, robust generic models',
+          },
           { name: 'Vite', level: 'Expert', featured: true, description: 'Sub-second HMR, optimized tree-shaking' },
           { name: 'Angular', level: 'Proficient', description: 'Enterprise modules, dependency injection' },
           { name: 'JavaScript (ES6+)', level: 'Expert', description: 'Asynchronous concurrency, closures, DOM' },
@@ -143,11 +204,30 @@ export const en: LocaleContent = {
         title: 'AI & Agentic Tooling',
         icon: 'Bot',
         skills: [
-          { name: 'Google Antigravity', level: 'Advanced', featured: true, description: 'Agent orchestration, tool integration' },
-          { name: 'Claude Code', level: 'Advanced', featured: true, description: 'Terminal agentic coding & refactoring' },
+          {
+            name: 'Google Antigravity',
+            level: 'Advanced',
+            featured: true,
+            description: 'Agent orchestration, tool integration',
+          },
+          {
+            name: 'Claude Code',
+            level: 'Advanced',
+            featured: true,
+            description: 'Terminal agentic coding & refactoring',
+          },
           { name: 'Gemini Gems', level: 'Advanced', description: 'Domain-specific architectural AI personas' },
-          { name: 'Prompt Engineering', level: 'Expert', description: 'Few-shot patterns, system design, context optimization' },
-          { name: 'Agentic Workflows', level: 'Advanced', featured: true, description: 'Multi-agent collaboration, memory, tool dispatch' },
+          {
+            name: 'Prompt Engineering',
+            level: 'Expert',
+            description: 'Few-shot patterns, system design, context optimization',
+          },
+          {
+            name: 'Agentic Workflows',
+            level: 'Advanced',
+            featured: true,
+            description: 'Multi-agent collaboration, memory, tool dispatch',
+          },
           { name: 'LLM APIs', level: 'Advanced', description: 'OpenAI, Anthropic, Gemini API implementations' },
         ],
       },
@@ -155,8 +235,18 @@ export const en: LocaleContent = {
         title: 'Automation & Backend',
         icon: 'Terminal',
         skills: [
-          { name: 'n8n Workflows', level: 'Expert', featured: true, description: 'Self-hosted and cloud orchestration pipelines' },
-          { name: 'Python', level: 'Advanced', featured: true, description: 'Automation scripts, scraping, data transformations' },
+          {
+            name: 'n8n Workflows',
+            level: 'Expert',
+            featured: true,
+            description: 'Self-hosted and cloud orchestration pipelines',
+          },
+          {
+            name: 'Python',
+            level: 'Advanced',
+            featured: true,
+            description: 'Automation scripts, scraping, data transformations',
+          },
           { name: 'Node.js / Express', level: 'Advanced', description: 'REST APIs, serverless functions, middleware' },
           { name: 'Web Scraping', level: 'Advanced', description: 'Headless automation, Cheerio, Puppeteer' },
           { name: 'EasyOCR', level: 'Intermediate', description: 'Automated OCR extraction pipelines' },
@@ -168,7 +258,12 @@ export const en: LocaleContent = {
         title: '3D, Design & Systems',
         icon: 'Layers',
         skills: [
-          { name: 'Three.js / React Three Fiber', level: 'Intermediate', featured: true, description: 'Interactive WebGL 3D canvas experiences' },
+          {
+            name: 'Three.js / React Three Fiber',
+            level: 'Intermediate',
+            featured: true,
+            description: 'Interactive WebGL 3D canvas experiences',
+          },
           { name: 'Figma', level: 'Advanced', description: 'Design systems, prototyping, pixel-perfect handoff' },
           { name: 'Git & GitHub', level: 'Expert', description: 'Branching strategies, CI/CD Actions, semantic PRs' },
           { name: 'Linux / macOS', level: 'Advanced', description: 'Unix shell scripting, server maintenance' },
@@ -178,9 +273,11 @@ export const en: LocaleContent = {
     ],
   },
   experience: {
+    eyebrow: 'Career Milestones',
     title: 'Work Experience',
     subtitle: 'Proven track record of engineering leadership, enterprise delivery, and measurable ROI',
     presentTag: 'Present',
+    currentTag: 'Current lead role',
     items: [
       {
         id: 'invest-medical',
@@ -190,7 +287,8 @@ export const en: LocaleContent = {
         location: 'Tbilisi, Georgia',
         type: 'Full-time',
         isCurrent: true,
-        summary: 'Lead architect steering the company’s digital ecosystem from scratch, deploying modern web architecture and enterprise automation workflows.',
+        summary:
+          'Lead architect steering the company’s digital ecosystem from scratch, deploying modern web architecture and enterprise automation workflows.',
         bullets: [
           'Full-Stack Platform: Architected and deployed the company’s digital web platform from the ground up using React 19, Vite, and Tailwind CSS v4.',
           'Automation Pipelines: Designed multi-stage automated pipelines for social media distribution, customer engagement tracking, and web scraping using n8n and custom Python/Node scripts.',
@@ -206,7 +304,8 @@ export const en: LocaleContent = {
         period: '01/2024 – 06/2025',
         location: 'International / Hybrid',
         type: 'Full-time',
-        summary: 'Developed scalable web applications in modern JavaScript/TypeScript within high-performing international Agile teams.',
+        summary:
+          'Developed scalable web applications in modern JavaScript/TypeScript within high-performing international Agile teams.',
         bullets: [
           'Engineered component-driven web interfaces using modern React and TypeScript for international enterprise clients.',
           'Integrated RESTful APIs, optimized complex client-side state management, and elevated Core Web Vitals to 95+ scores.',
@@ -236,7 +335,8 @@ export const en: LocaleContent = {
         period: '01/2020 – 12/2021',
         location: 'Tbilisi',
         type: 'Full-time',
-        summary: 'Delivered tailored client websites and web applications with a focus on semantic markup and load velocity.',
+        summary:
+          'Delivered tailored client websites and web applications with a focus on semantic markup and load velocity.',
         bullets: [
           'Built custom client-facing web applications with semantic HTML5, modern CSS, and vanilla/lightweight JS.',
           'Improved page speed scores by optimizing asset delivery, caching headers, and responsive images.',
@@ -247,6 +347,7 @@ export const en: LocaleContent = {
     ],
   },
   projects: {
+    eyebrow: 'Case Studies',
     title: 'Featured Case Studies',
     subtitle: 'High-impact projects: The business challenge, technical architecture, and measurable outcomes',
     viewCaseStudy: 'View Case Study',
@@ -257,6 +358,7 @@ export const en: LocaleContent = {
     challengeTitle: 'The Challenge',
     solutionTitle: 'The Architectural Solution',
     contributionsTitle: 'My Key Contributions',
+    closeCaseStudy: 'Close case study',
     items: [
       {
         id: 'gestlife',
@@ -274,8 +376,10 @@ export const en: LocaleContent = {
           { label: 'First Contentful Paint', value: '< 0.4s' },
           { label: 'UI Reusability', value: '100%' },
         ],
-        problem: 'The client required a state-of-the-art web platform to showcase services and key metrics with zero perceptible latency, flawless mobile responsiveness, and clean code capable of scaling to future modules.',
-        solution: 'Engineered an ultra-lean single-page application built on React 19 and Tailwind CSS v4 powered by Vite. Implemented atomic components, fully accessible semantic markup, and edge delivery on Vercel.',
+        problem:
+          'The client required a state-of-the-art web platform to showcase services and key metrics with zero perceptible latency, flawless mobile responsiveness, and clean code capable of scaling to future modules.',
+        solution:
+          'Engineered an ultra-lean single-page application built on React 19 and Tailwind CSS v4 powered by Vite. Implemented atomic components, fully accessible semantic markup, and edge delivery on Vercel.',
         myContribution: [
           'Architected the entire project structure using React 19, strict TypeScript, and Tailwind CSS v4.',
           'Designed responsive layouts ensuring fluid typography and intuitive component hierarchies.',
@@ -299,8 +403,10 @@ export const en: LocaleContent = {
           { label: 'Mobile Bounce Rate', value: '-42%' },
           { label: 'Guest Usability Score', value: '4.9/5' },
         ],
-        problem: 'Restaurant guests suffered from clunky, bandwidth-heavy PDF menus that took forever to load on slow cell connections, frustrating customers and causing lost orders.',
-        solution: 'Constructed an instant QR-code accessible web menu with instant category navigation, optimized image caching, and zero external runtime dependencies.',
+        problem:
+          'Restaurant guests suffered from clunky, bandwidth-heavy PDF menus that took forever to load on slow cell connections, frustrating customers and causing lost orders.',
+        solution:
+          'Constructed an instant QR-code accessible web menu with instant category navigation, optimized image caching, and zero external runtime dependencies.',
         myContribution: [
           'Built a lightweight, touch-optimized mobile interface with reactive category switching.',
           'Eliminated redundant network requests and implemented intelligent asset lazy loading.',
@@ -316,16 +422,16 @@ export const en: LocaleContent = {
         featured: true,
         year: '2025 - 2026',
         role: 'Lead Automation Engineer',
-        liveUrl: 'https://github.com/darsa999',
-        githubUrl: 'https://github.com/darsa999',
         tags: ['n8n', 'Python', 'Claude Code', 'Antigravity', 'Web Scraping', 'REST APIs'],
         metrics: [
           { label: 'Manual Labor Saved', value: '70%' },
           { label: 'Pipeline Execution', value: '24/7 Automated' },
           { label: 'Error Rate', value: '< 0.1%' },
         ],
-        problem: 'Operational bottlenecks in multi-channel social posting, client lead ingestion, and competitor data scraping were costing over 25 hours of repetitive weekly manual labor.',
-        solution: 'Built an integrated automation ecosystem combining self-hosted n8n pipelines, Python web scrapers, and autonomous AI agents for automated content scheduling and CRM synchronization.',
+        problem:
+          'Operational bottlenecks in multi-channel social posting, client lead ingestion, and competitor data scraping were costing over 25 hours of repetitive weekly manual labor.',
+        solution:
+          'Built an integrated automation ecosystem combining self-hosted n8n pipelines, Python web scrapers, and autonomous AI agents for automated content scheduling and CRM synchronization.',
         myContribution: [
           'Engineered resilient n8n pipelines with automated error handling and webhook triggers.',
           'Wrote Python automation scripts for data extraction, schema validation, and structured ingestion.',
@@ -336,12 +442,19 @@ export const en: LocaleContent = {
     ],
   },
   education: {
+    eyebrow: 'Academic & Certifications',
     title: 'Education & Certifications',
     subtitle: 'Verified credentials, continuous academic advancement, and industry recognition',
     degreesTitle: 'Degrees & Core Programs',
     certificationsTitle: 'Official Certifications',
     languagesTitle: 'Language Proficiency',
     stepVerificationBadge: 'IT Academy STEP Official Verification',
+    stepTitle: 'IT Academy STEP — Front-End Web Programming Certificate & Addition',
+    credentialVerified: 'Credential Verified',
+    verifiedYear: 'Verified 2025',
+    commsTitle: '🌐 Client Communication Guarantee',
+    commsText:
+      'Fluent English communication for video discovery calls, daily asynchronous standups, PR reviews, and sprint planning.',
     items: [
       {
         id: 'skillwill',
@@ -383,6 +496,7 @@ export const en: LocaleContent = {
     ],
   },
   contact: {
+    eyebrow: 'Get Started',
     title: 'Hire Me / Get in Touch',
     subtitle: 'Have a project in mind or need an AI-Augmented Engineer? Let’s connect today.',
     availabilityText: '🟢 Currently Available: Upwork Contracts, Fixed-Price Milestones, and Full-Time Remote Roles',
@@ -393,11 +507,26 @@ export const en: LocaleContent = {
     directContact: 'Direct Contact Details',
     hireDirectly: 'Hire on Upwork',
     orDirectMessage: 'Or reach out directly:',
-    sendBrief: 'Ready to build something exceptional? Send a brief message with your requirements, and I will reply within 2-4 hours with actionable steps.',
+    sendBrief:
+      'Ready to build something exceptional? Send a brief message with your requirements, and I will reply within 2-4 hours with actionable steps.',
+    primaryBadge: 'Primary Recommendation',
+    upworkBullets: [
+      'Upwork Escrow Protection ensures funds are only released upon your approval',
+      'Flexible milestone or weekly hourly contracts with full time tracking',
+      'Comprehensive NDA & IP transfer guarantee upon project completion',
+    ],
+    responseTime: 'Typically responds in under 2 hours',
+    emailLabel: 'Email Address',
+    phoneLabel: 'Phone / WhatsApp',
+    linkedinLabel: 'LinkedIn Profile',
+    copyEmail: 'Copy email',
+    copyFailed: 'Could not copy — please select the address manually.',
+    locationNote: 'Location: Tbilisi, Georgia (UTC+4) · Open to asynchronous & overlapping hours',
   },
   footer: {
     rights: 'All rights reserved.',
     builtWith: 'Engineered with React 19, Tailwind CSS v4, TypeScript, and Framer Motion.',
     topRatedBadge: 'Upwork Top-Tier Ready · AI-Augmented Engineering',
+    backToTop: 'Back to top',
   },
 };

@@ -1,16 +1,25 @@
 import { LocaleContent } from '../../types';
 
 export const ru: LocaleContent = {
+  seo: {
+    title: 'Мамука Дарсалия | Lead Full-Stack & Automation Engineer',
+    description:
+      'Мамука Дарсалия — Lead Full-Stack инженер из Тбилиси. React 19, Tailwind CSS v4, TypeScript, автоматизация на n8n и AI-Augmented разработка. Доступен для найма на Upwork.',
+  },
   meta: {
     name: 'Мамука Дарсалия',
     title: 'Lead Full-Stack & Инженер по автоматизации · AI-Augmented Developer',
     location: 'Тбилиси, Грузия (Доступен удаленно по всему миру)',
     status: 'Открыт для контрактов на Upwork и Full-Stack проектов',
-    upworkProfileUrl: 'https://www.upwork.com/freelancers/~019edc26589108bdab',
-    githubUrl: 'https://github.com/darsa999',
-    linkedinUrl: 'https://www.linkedin.com/in/mamuka-darsalia-665505318/',
-    email: 'darsaliamamuka9@gmail.com',
-    phone: '+995 555 97 97 08',
+    city: 'Тбилиси, Грузия',
+    timezone: 'UTC+4',
+  },
+  common: {
+    available: 'Доступен',
+    skipToContent: 'Перейти к содержимому',
+    githubProfile: 'Профиль GitHub',
+    linkedinProfile: 'Профиль LinkedIn',
+    upworkProfile: 'Профиль Upwork',
   },
   nav: {
     about: 'Обо мне',
@@ -21,18 +30,32 @@ export const ru: LocaleContent = {
     contact: 'Контакты',
     hireUpwork: 'Нанять на Upwork',
     viewWork: 'Проекты',
+    brandTagline: 'Lead Full-Stack · AI-Augmented',
+    mainNavLabel: 'Основная навигация',
+    openMenu: 'Открыть меню',
+    closeMenu: 'Закрыть меню',
+    selectLanguage: 'Выбрать язык',
+  },
+  theme: {
+    dark: 'Тёмная тема',
+    light: 'Светлая тема',
+    switchToLight: 'Включить светлую',
+    switchToDark: 'Включить тёмную',
   },
   hero: {
     badge: '🚀 Доступен для масштабных проектов на Upwork & Full-Time',
     greeting: 'Здравствуйте, я',
     name: 'Мамука Дарсалия',
     roleHeadline: 'Lead Full-Stack & Инженер по автоматизации · AI-Augmented Developer',
-    subheadline: 'Проектирую и разрабатываю высокопроизводительные веб-приложения на базе новейших React 19 и Tailwind CSS v4. Применяя методы AI-Augmented разработки (Google Antigravity, Claude Code) и бизнес-автоматизацию (n8n, Python), ускоряю выпуск готового продукта в 3–5 раз с высочайшим качеством кода.',
+    subheadline:
+      'Проектирую и разрабатываю высокопроизводительные веб-приложения на базе новейших React 19 и Tailwind CSS v4. Применяя методы AI-Augmented разработки (Google Antigravity, Claude Code) и бизнес-автоматизацию (n8n, Python), ускоряю выпуск готового продукта в 3–5 раз с высочайшим качеством кода.',
     ctaPrimary: 'Нанять на Upwork',
     ctaSecondary: 'Смотреть кейсы',
     ctaGithub: 'GitHub профиль',
     ctaContact: 'Связаться со мной',
     availableBadge: 'Готов к новым проектам и контрактам',
+    trustBadge: 'Полная защита Escrow на Upwork · 100% гарантия поэтапной сдачи',
+    photoAlt: 'Портрет Мамуки Дарсалия',
     quickStats: [
       { value: '6+', label: 'Лет практического опыта' },
       { value: '3-5x', label: 'Ускорение за счет AI-инструментов' },
@@ -43,7 +66,8 @@ export const ru: LocaleContent = {
   upworkSection: {
     badge: '💎 ПРЕИМУЩЕСТВА ДЛЯ КЛИЕНТОВ UPWORK',
     title: 'Почему международные заказчики выбирают сотрудничество со мной',
-    description: 'Как AI-Augmented Full-Stack инженер, я создаю не просто код, а работающие бизнес-инструменты с высокой окупаемостью. Полная прозрачность процессов, прогнозируемые сроки и инженерная надежность на каждом этапе.',
+    description:
+      'Как AI-Augmented Full-Stack инженер, я создаю не просто код, а работающие бизнес-инструменты с высокой окупаемостью. Полная прозрачность процессов, прогнозируемые сроки и инженерная надежность на каждом этапе.',
     perksTitle: 'Гарантии для клиента:',
     perks: [
       {
@@ -72,12 +96,27 @@ export const ru: LocaleContent = {
     guaranteeText: '✓ 100% гарантия качества · ✓ Защита сделки через Upwork Escrow',
   },
   about: {
+    eyebrow: 'Профиль и подход',
     title: 'Обо мне',
     subtitle: 'Профессиональный путь, философия разработки и принципы работы',
     bioParagraphs: [
       'Ориентированный на инновации Full-Stack и Frontend инженер с 6 годами практического опыта в проектировании современных веб-приложений, сложной архитектуры и бизнес-автоматизации.',
       'Специализируюсь на подходах AI-Augmented Development (Google Antigravity, Claude Code), что дает возможность ускорять жизненный цикл разработки в 3-5 раз без компромиссов в качестве. В совершенстве владею современным стеком (React 19, Tailwind CSS v4, Angular, TypeScript) и имею обширный опыт создания автоматизированных пайплайнов (n8n, Python).',
       'В настоящее время занимаю позицию Lead Full-Stack & Automation Engineer в компании «Инвест Медикал Джорджия», где с нуля спроектировал цифровую экосистему компании и построил сквозные пайплайны автоматизации социальных сетей и парсинга данных.',
+    ],
+    highlights: [
+      'Специалист по React 19 и Tailwind CSS v4',
+      'AI-Augmented разработка (скорость 3-5x)',
+      'n8n, Python и автоматизация процессов',
+      'Свободно: английский, грузинский и русский',
+    ],
+    overviewTitle: 'Кратко',
+    overview: [
+      { label: 'Локация', value: 'Тбилиси, Грузия' },
+      { label: 'Опыт', value: '6+ лет' },
+      { label: 'Текущая роль', value: 'Lead Full-Stack Eng.' },
+      { label: 'Статус на Upwork', value: 'Доступен сейчас', live: true },
+      { label: 'Часовой пояс', value: 'UTC+4 (гибко)' },
     ],
     coreValues: [
       {
@@ -116,6 +155,8 @@ export const ru: LocaleContent = {
     ],
   },
   skills: {
+    eyebrow: 'Навыки и инструменты',
+    coreTag: 'Ключевой',
     title: 'Технологический стек и навыки',
     subtitle: 'Архитектура фронтенда, агентные AI-инструменты и автоматизация процессов',
     aiCallout: {
@@ -123,15 +164,40 @@ export const ru: LocaleContent = {
       title: 'Ускорение цикла разработки в 3-5 раз с Google Antigravity и Claude Code',
       desc: 'Глубокая интеграция автономных AI-агентов в повседневный процесс проектирования, тестирования и код-ревью позволяет реализовывать сложные системы в рекордные сроки с эталонным качеством кода.',
     },
+    velocity: {
+      title: '⚡ Метрика скорости',
+      primary: 'Выход на рынок в 3-5 раз быстрее',
+      secondary: 'Почти нулевая архитектурная регрессия',
+    },
     categories: [
       {
         title: 'Frontend архитектура',
         icon: 'Layout',
         skills: [
-          { name: 'React 19', level: 'Expert', featured: true, description: 'Server Components, Hooks, React Compiler' },
-          { name: 'Tailwind CSS v4', level: 'Expert', featured: true, description: 'Сверхбыстрый движок стилей, современные токены' },
-          { name: 'TypeScript', level: 'Advanced', featured: true, description: 'Строгая типизация, контракты интерфейсов' },
-          { name: 'Vite', level: 'Expert', featured: true, description: 'Мгновенная сборка и оптимизация дерева модулей' },
+          {
+            name: 'React 19',
+            level: 'Expert',
+            featured: true,
+            description: 'Server Components, Hooks, React Compiler',
+          },
+          {
+            name: 'Tailwind CSS v4',
+            level: 'Expert',
+            featured: true,
+            description: 'Сверхбыстрый движок стилей, современные токены',
+          },
+          {
+            name: 'TypeScript',
+            level: 'Advanced',
+            featured: true,
+            description: 'Строгая типизация, контракты интерфейсов',
+          },
+          {
+            name: 'Vite',
+            level: 'Expert',
+            featured: true,
+            description: 'Мгновенная сборка и оптимизация дерева модулей',
+          },
           { name: 'Angular', level: 'Proficient', description: 'Корпоративные модули, архитектура компонентов' },
           { name: 'JavaScript (ES6+)', level: 'Expert', description: 'Асинхронность, замыкания, оптимизация DOM' },
           { name: 'HTML5 / CSS3', level: 'Expert', description: 'Семантическая разметка, доступность a11y, Flex/Grid' },
@@ -143,11 +209,26 @@ export const ru: LocaleContent = {
         title: 'AI и агентные инструменты',
         icon: 'Bot',
         skills: [
-          { name: 'Google Antigravity', level: 'Advanced', featured: true, description: 'Оркестрация автономных агентов и тулов' },
-          { name: 'Claude Code', level: 'Advanced', featured: true, description: 'Агентная разработка в терминале, рефакторинг' },
+          {
+            name: 'Google Antigravity',
+            level: 'Advanced',
+            featured: true,
+            description: 'Оркестрация автономных агентов и тулов',
+          },
+          {
+            name: 'Claude Code',
+            level: 'Advanced',
+            featured: true,
+            description: 'Агентная разработка в терминале, рефакторинг',
+          },
           { name: 'Gemini Gems', level: 'Advanced', description: 'Кастомные AI-персоны под архитектурные задачи' },
           { name: 'Prompt Engineering', level: 'Expert', description: 'Few-shot шаблоны, системные промпты, контекст' },
-          { name: 'Agentic Workflows', level: 'Advanced', featured: true, description: 'Многоагентные цепочки, память, вызов инструментов' },
+          {
+            name: 'Agentic Workflows',
+            level: 'Advanced',
+            featured: true,
+            description: 'Многоагентные цепочки, память, вызов инструментов',
+          },
           { name: 'LLM APIs', level: 'Advanced', description: 'Интеграция OpenAI, Anthropic, Gemini API' },
         ],
       },
@@ -155,8 +236,18 @@ export const ru: LocaleContent = {
         title: 'Автоматизация и Backend',
         icon: 'Terminal',
         skills: [
-          { name: 'n8n Workflows', level: 'Expert', featured: true, description: 'Построение сложных автоматических пайплайнов' },
-          { name: 'Python', level: 'Advanced', featured: true, description: 'Скрипты автоматизации, парсинг данных, обработка' },
+          {
+            name: 'n8n Workflows',
+            level: 'Expert',
+            featured: true,
+            description: 'Построение сложных автоматических пайплайнов',
+          },
+          {
+            name: 'Python',
+            level: 'Advanced',
+            featured: true,
+            description: 'Скрипты автоматизации, парсинг данных, обработка',
+          },
           { name: 'Node.js / Express', level: 'Advanced', description: 'REST API, бессерверные функции, middleware' },
           { name: 'Web Scraping', level: 'Advanced', description: 'Парсинг сложных динамических веб-сайтов' },
           { name: 'EasyOCR', level: 'Intermediate', description: 'Автоматическое распознавание текста' },
@@ -168,9 +259,18 @@ export const ru: LocaleContent = {
         title: '3D, дизайн и системы',
         icon: 'Layers',
         skills: [
-          { name: 'Three.js / React Three Fiber', level: 'Intermediate', featured: true, description: 'Интерактивные 3D WebGL сцены на холсте' },
+          {
+            name: 'Three.js / React Three Fiber',
+            level: 'Intermediate',
+            featured: true,
+            description: 'Интерактивные 3D WebGL сцены на холсте',
+          },
           { name: 'Figma', level: 'Advanced', description: 'Дизайн-системы, прототипирование, передача в верстку' },
-          { name: 'Git & GitHub', level: 'Expert', description: 'Ветвление GitFlow, CI/CD Actions, семантические коммиты' },
+          {
+            name: 'Git & GitHub',
+            level: 'Expert',
+            description: 'Ветвление GitFlow, CI/CD Actions, семантические коммиты',
+          },
           { name: 'Linux / macOS', level: 'Advanced', description: 'Bash/Zsh скрипты, администрирование серверов' },
           { name: 'TCP/IP & DNS', level: 'Intermediate', description: 'Маршрутизация, SSL/TLS, настройка доменов' },
         ],
@@ -178,9 +278,11 @@ export const ru: LocaleContent = {
     ],
   },
   experience: {
+    eyebrow: 'Карьерный путь',
     title: 'Опыт работы',
     subtitle: 'Практические результаты, техническое лидерство и реализованные задачи',
     presentTag: 'По наст. время',
+    currentTag: 'Текущая ведущая роль',
     items: [
       {
         id: 'invest-medical',
@@ -190,7 +292,8 @@ export const ru: LocaleContent = {
         location: 'Тбилиси, Грузия',
         type: 'Полная занятость (Full-time)',
         isCurrent: true,
-        summary: 'Техническое руководство цифровой экосистемой компании, разработка веб-платформы с нуля и внедрение сквозных автоматизаций.',
+        summary:
+          'Техническое руководство цифровой экосистемой компании, разработка веб-платформы с нуля и внедрение сквозных автоматизаций.',
         bullets: [
           'Full-Stack платформа: Проектирование и запуск корпоративной веб-платформы с нуля на базе React 19, Vite и Tailwind CSS v4.',
           'Автоматизация: Построение автоматических цепочек постинга в соцсети, работы с клиентами и сбора данных через n8n и кастомные скрипты Python/Node.',
@@ -206,7 +309,8 @@ export const ru: LocaleContent = {
         period: '01/2024 – 06/2025',
         location: 'Международная компания / Гибрид',
         type: 'Полная занятость',
-        summary: 'Разработка масштабируемых веб-интерфейсов в современной экосистеме JavaScript с компонентно-ориентированным подходом.',
+        summary:
+          'Разработка масштабируемых веб-интерфейсов в современной экосистеме JavaScript с компонентно-ориентированным подходом.',
         bullets: [
           'Разработка масштабируемых веб-интерфейсов с компонентно-ориентированной архитектурой для зарубежных заказчиков.',
           'Интеграция RESTful API, оптимизация управления состоянием приложения и повышение показателей Core Web Vitals до 95+.',
@@ -236,7 +340,8 @@ export const ru: LocaleContent = {
         period: '01/2020 – 12/2021',
         location: 'Тбилиси',
         type: 'Полная занятость',
-        summary: 'Создание клиентских веб-сайтов и приложений с чистым семантическим кодом и высокой скоростью загрузки.',
+        summary:
+          'Создание клиентских веб-сайтов и приложений с чистым семантическим кодом и высокой скоростью загрузки.',
         bullets: [
           'Разработка адаптивных интерфейсов с чистым кодом и соблюдением современных стандартов доступности.',
           'Оптимизация скорости загрузки страниц и SEO-показателей.',
@@ -247,6 +352,7 @@ export const ru: LocaleContent = {
     ],
   },
   projects: {
+    eyebrow: 'Кейсы',
     title: 'Избранные кейсы (Case Studies)',
     subtitle: 'Реальные цифровые продукты: Проблема бизнеса, архитектурное решение и измеримый результат',
     viewCaseStudy: 'Подробнее о кейсе',
@@ -257,6 +363,7 @@ export const ru: LocaleContent = {
     challengeTitle: 'Проблема и задача',
     solutionTitle: 'Архитектурное решение',
     contributionsTitle: 'Мой вклад в проект',
+    closeCaseStudy: 'Закрыть кейс',
     items: [
       {
         id: 'gestlife',
@@ -274,8 +381,10 @@ export const ru: LocaleContent = {
           { label: 'First Contentful Paint', value: '< 0.4с' },
           { label: 'Повторное исп. UI', value: '100%' },
         ],
-        problem: 'Заказчику требовалась сверхбыстрая веб-платформа с современной эстетикой для демонстрации услуг, обладающая идеальной адаптивностью и чистой модульной базой для дальнейшего масштабирования.',
-        solution: 'Платформа создана на новейшем стеке React 19 и Tailwind CSS v4 с бандлером Vite. Реализована строгая типизация TypeScript, поддержка стандартов доступности WCAG и деплой на Vercel Edge.',
+        problem:
+          'Заказчику требовалась сверхбыстрая веб-платформа с современной эстетикой для демонстрации услуг, обладающая идеальной адаптивностью и чистой модульной базой для дальнейшего масштабирования.',
+        solution:
+          'Платформа создана на новейшем стеке React 19 и Tailwind CSS v4 с бандлером Vite. Реализована строгая типизация TypeScript, поддержка стандартов доступности WCAG и деплой на Vercel Edge.',
         myContribution: [
           'Проектирование структуры проекта с нуля на React 19 и Tailwind CSS v4.',
           'Разработка библиотеки адаптивных компонентов с максимальной производительностью.',
@@ -299,8 +408,10 @@ export const ru: LocaleContent = {
           { label: 'Снижение отказов', value: '-42%' },
           { label: 'Оценка удобства', value: '4.9/5' },
         ],
-        problem: 'Традиционные бумажные меню и тяжелые PDF-файлы вызывали раздражение посетителей из-за долгой загрузки на мобильном интернете и требовали лишних затрат при смене цен.',
-        solution: 'Создано мгновенно открывающееся через QR-код цифровое меню с быстрой навигацией по разделам, фильтрацией и адаптацией под любые смартфоны без сторонних библиотек.',
+        problem:
+          'Традиционные бумажные меню и тяжелые PDF-файлы вызывали раздражение посетителей из-за долгой загрузки на мобильном интернете и требовали лишних затрат при смене цен.',
+        solution:
+          'Создано мгновенно открывающееся через QR-код цифровое меню с быстрой навигацией по разделам, фильтрацией и адаптацией под любые смартфоны без сторонних библиотек.',
         myContribution: [
           'Разработка легковесного мобильного интерфейса с тактильной отдачей.',
           'Реактивная фильтрация позиций блюд и напитков.',
@@ -316,16 +427,16 @@ export const ru: LocaleContent = {
         featured: true,
         year: '2025 - 2026',
         role: 'Lead Automation Engineer',
-        liveUrl: 'https://github.com/darsa999',
-        githubUrl: 'https://github.com/darsa999',
         tags: ['n8n', 'Python', 'Claude Code', 'Antigravity', 'Web Scraping', 'REST APIs'],
         metrics: [
           { label: 'Экономия ручного труда', value: '70%' },
           { label: 'Режим работы', value: '24/7 Автономно' },
           { label: 'Уровень ошибок', value: '< 0.1%' },
         ],
-        problem: 'Рутинная публикация в социальные сети, сбор данных о клиентах и мониторинг рынка отнимали у команды десятки часов ручной работы каждую неделю.',
-        solution: 'Разработан единый контур автоматизации на базе self-hosted n8n, Python-скриптов и AI-агентов (Claude, Antigravity), взявший на себя сбор данных и публикацию контента.',
+        problem:
+          'Рутинная публикация в социальные сети, сбор данных о клиентах и мониторинг рынка отнимали у команды десятки часов ручной работы каждую неделю.',
+        solution:
+          'Разработан единый контур автоматизации на базе self-hosted n8n, Python-скриптов и AI-агентов (Claude, Antigravity), взявший на себя сбор данных и публикацию контента.',
         myContribution: [
           'Настройка сервера n8n, создание отказоустойчивых сценариев и обработка вебхуков.',
           'Разработка Python-скриптов для парсинга и структурирования информации.',
@@ -336,12 +447,19 @@ export const ru: LocaleContent = {
     ],
   },
   education: {
+    eyebrow: 'Образование и сертификаты',
     title: 'Образование и сертификаты',
     subtitle: 'Академическая база, официальные сертификаты и постоянное развитие',
     degreesTitle: 'Высшее образование и академические программы',
     certificationsTitle: 'Официальные сертификаты',
     languagesTitle: 'Владение языками',
     stepVerificationBadge: 'IT Academy STEP Official Verification',
+    stepTitle: 'IT Academy STEP — сертификат Front-End Web Programming и приложение',
+    credentialVerified: 'Квалификация подтверждена',
+    verifiedYear: 'Подтверждено в 2025',
+    commsTitle: '🌐 Гарантия коммуникации',
+    commsText:
+      'Свободное общение на английском: видеозвонки, ежедневные асинхронные стендапы, ревью PR и планирование спринтов.',
     items: [
       {
         id: 'skillwill',
@@ -356,7 +474,8 @@ export const ru: LocaleContent = {
         title: 'Front-End Web Programming',
         institution: 'IT Academy STEP',
         period: '2025',
-        details: 'HTML5, CSS3, Modern JavaScript, Angular, компонентная архитектура и стандарты коммерческой разработки.',
+        details:
+          'HTML5, CSS3, Modern JavaScript, Angular, компонентная архитектура и стандарты коммерческой разработки.',
         badge: 'Certified Graduate · 2025',
       },
       {
@@ -369,7 +488,7 @@ export const ru: LocaleContent = {
       },
       {
         id: 'university',
-        title: 'Степень бакалавра (Bachelor\'s Degree)',
+        title: "Степень бакалавра (Bachelor's Degree)",
         institution: 'Тбилисский государственный медицинский университет',
         period: '2011 – 2017',
         details: 'Высшее академическое образование, системный анализ, высокая дисциплина и исследовательская работа.',
@@ -383,6 +502,7 @@ export const ru: LocaleContent = {
     ],
   },
   contact: {
+    eyebrow: 'Начнём',
     title: 'Связаться / Нанять',
     subtitle: 'Есть проект или нужна консультация по AI-разработке? Давайте обсудим.',
     availabilityText: '🟢 Доступен: Upwork контракты, проектные задачи с фиксированной ценой и Full-Time роли',
@@ -393,11 +513,26 @@ export const ru: LocaleContent = {
     directContact: 'Прямые контактные данные',
     hireDirectly: 'Нанять на Upwork',
     orDirectMessage: 'Или напишите мне напрямую:',
-    sendBrief: 'Готовы начать сотрудничество? Отправьте краткое описание проекта, и я отвечу в течение 2-4 часов с детальным планом действий.',
+    sendBrief:
+      'Готовы начать сотрудничество? Отправьте краткое описание проекта, и я отвечу в течение 2-4 часов с детальным планом действий.',
+    primaryBadge: 'Рекомендуемый способ',
+    upworkBullets: [
+      'Защита Upwork Escrow: средства переводятся только после вашего одобрения',
+      'Гибкие поэтапные или почасовые контракты с полным учётом времени',
+      'Гарантия NDA и полной передачи прав на результат после завершения проекта',
+    ],
+    responseTime: 'Обычно отвечаю в течение 2 часов',
+    emailLabel: 'Эл. почта',
+    phoneLabel: 'Телефон / WhatsApp',
+    linkedinLabel: 'Профиль LinkedIn',
+    copyEmail: 'Скопировать e-mail',
+    copyFailed: 'Не удалось скопировать — выделите адрес вручную.',
+    locationNote: 'Локация: Тбилиси, Грузия (UTC+4) · Открыт к асинхронной работе и пересекающимся часам',
   },
   footer: {
     rights: 'Все права защищены.',
     builtWith: 'Разработано на React 19, Tailwind CSS v4, TypeScript и Framer Motion.',
     topRatedBadge: 'Готов к топовым проектам Upwork · AI-Augmented Engineering',
+    backToTop: 'Наверх',
   },
 };

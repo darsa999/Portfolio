@@ -1,4 +1,5 @@
 import React from 'react';
+import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion';
 import { useLanguage } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -10,23 +11,24 @@ import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { motion, AnimatePresence } from 'framer-motion';
 
-export const AppContent: React.FC = () => {
-  const { locale } = useLanguage();
+export const App: React.FC = () => {
+  const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand-500 selection:text-white">
-      <Navbar />
-
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={locale}
-          initial={{ opacity: 0.92, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0.92, y: -4 }}
-          transition={{ duration: 0.2 }}
+    // `strict` makes any stray full `motion.*` import a runtime error, so only the lighter `m.*` + domAnimation ship.
+    <LazyMotion features={domAnimation} strict>
+      <MotionConfig reducedMotion="user">
+        <a
+          href="#main"
+          className="sr-only z-[100] rounded-xl bg-brand-600 px-4 py-2 text-sm font-bold text-white focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
         >
+          {t.common.skipToContent}
+        </a>
+
+        <Navbar />
+
+        <main id="main" tabIndex={-1} className="outline-none">
           <Hero />
           <UpworkBanner />
           <About />
@@ -35,16 +37,12 @@ export const AppContent: React.FC = () => {
           <Projects />
           <Education />
           <Contact />
-        </motion.main>
-      </AnimatePresence>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </MotionConfig>
+    </LazyMotion>
   );
-};
-
-export const App: React.FC = () => {
-  return <AppContent />;
 };
 
 export default App;

@@ -1,3 +1,5 @@
+import type { IconName } from '../components/icons';
+
 export type Locale = 'ka' | 'en' | 'ru';
 
 export interface ProjectCaseStudy {
@@ -36,7 +38,7 @@ export interface ExperienceItem {
 
 export interface SkillCategory {
   title: string;
-  icon: string;
+  icon: IconName;
   skills: {
     name: string;
     level?: string;
@@ -60,32 +62,31 @@ export interface LanguageItem {
   code: string;
 }
 
-export interface UpworkValueProp {
-  headline: string;
-  subheadline: string;
-  stats: {
-    value: string;
-    label: string;
-    detail: string;
-  }[];
-  clientBenefits: {
-    title: string;
-    description: string;
-    icon: string;
-  }[];
+interface IconCard {
+  title: string;
+  desc: string;
+  icon: IconName;
 }
 
 export interface LocaleContent {
+  seo: {
+    title: string;
+    description: string;
+  };
   meta: {
     name: string;
     title: string;
     location: string;
+    city: string;
+    timezone: string;
     status: string;
-    upworkProfileUrl: string;
-    githubUrl: string;
-    linkedinUrl: string;
-    email: string;
-    phone: string;
+  };
+  common: {
+    available: string;
+    skipToContent: string;
+    githubProfile: string;
+    linkedinProfile: string;
+    upworkProfile: string;
   };
   nav: {
     about: string;
@@ -96,6 +97,17 @@ export interface LocaleContent {
     contact: string;
     hireUpwork: string;
     viewWork: string;
+    brandTagline: string;
+    mainNavLabel: string;
+    openMenu: string;
+    closeMenu: string;
+    selectLanguage: string;
+  };
+  theme: {
+    dark: string;
+    light: string;
+    switchToLight: string;
+    switchToDark: string;
   };
   hero: {
     badge: string;
@@ -108,6 +120,8 @@ export interface LocaleContent {
     ctaGithub: string;
     ctaContact: string;
     availableBadge: string;
+    trustBadge: string;
+    photoAlt: string;
     quickStats: {
       value: string;
       label: string;
@@ -118,48 +132,55 @@ export interface LocaleContent {
     title: string;
     description: string;
     perksTitle: string;
-    perks: {
-      title: string;
-      desc: string;
-      icon: string;
-    }[];
+    perks: IconCard[];
     ctaButton: string;
     secondaryCta: string;
     guaranteeText: string;
   };
   about: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     bioParagraphs: string[];
-    coreValues: {
-      title: string;
-      desc: string;
-      icon: string;
+    highlights: string[];
+    overviewTitle: string;
+    overview: {
+      label: string;
+      value: string;
+      /** renders the value with the green "live" dot */
+      live?: boolean;
     }[];
+    coreValues: IconCard[];
     hobbiesTitle: string;
-    hobbies: {
-      title: string;
-      desc: string;
-      icon: string;
-    }[];
+    hobbies: IconCard[];
   };
   skills: {
+    eyebrow: string;
     title: string;
     subtitle: string;
+    coreTag: string;
     categories: SkillCategory[];
     aiCallout: {
       badge: string;
       title: string;
       desc: string;
     };
+    velocity: {
+      title: string;
+      primary: string;
+      secondary: string;
+    };
   };
   experience: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     presentTag: string;
+    currentTag: string;
     items: ExperienceItem[];
   };
   projects: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     viewCaseStudy: string;
@@ -170,9 +191,11 @@ export interface LocaleContent {
     challengeTitle: string;
     solutionTitle: string;
     contributionsTitle: string;
+    closeCaseStudy: string;
     items: ProjectCaseStudy[];
   };
   education: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     degreesTitle: string;
@@ -181,8 +204,14 @@ export interface LocaleContent {
     items: EducationItem[];
     languages: LanguageItem[];
     stepVerificationBadge: string;
+    stepTitle: string;
+    credentialVerified: string;
+    verifiedYear: string;
+    commsTitle: string;
+    commsText: string;
   };
   contact: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     availabilityText: string;
@@ -190,14 +219,24 @@ export interface LocaleContent {
     emailMe: string;
     callMe: string;
     copySuccess: string;
+    copyFailed: string;
+    copyEmail: string;
     directContact: string;
     hireDirectly: string;
     orDirectMessage: string;
     sendBrief: string;
+    primaryBadge: string;
+    upworkBullets: string[];
+    responseTime: string;
+    emailLabel: string;
+    phoneLabel: string;
+    linkedinLabel: string;
+    locationNote: string;
   };
   footer: {
     rights: string;
     builtWith: string;
     topRatedBadge: string;
+    backToTop: string;
   };
 }

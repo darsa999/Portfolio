@@ -1,149 +1,151 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Phone, Copy, Check, ExternalLink, Github, Linkedin, MessageSquare, Sparkles, ShieldCheck } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Mail, Phone, Copy, Check, ExternalLink, MessageSquare, Sparkles, ShieldCheck } from 'lucide-react';
+import { m } from 'framer-motion';
+import { SectionHeading } from './ui/SectionHeading';
+import { siteConfig } from '../config/site';
+import { GithubIcon, LinkedinIcon } from './icons';
+
+type CopyState = 'idle' | 'copied' | 'failed';
 
 export const Contact: React.FC = () => {
   const { t } = useLanguage();
-  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copyState, setCopyState] = useState<CopyState>('idle');
+  const resetTimer = useRef<number | undefined>(undefined);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(t.meta.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
+  useEffect(() => () => window.clearTimeout(resetTimer.current), []);
+
+  const handleCopyEmail = async () => {
+    try {
+      // Throws on insecure origins, denied permission, or browsers without the async Clipboard API.
+      await navigator.clipboard.writeText(siteConfig.email);
+      setCopyState('copied');
+    } catch {
+      setCopyState('failed');
+    }
+    window.clearTimeout(resetTimer.current);
+    resetTimer.current = window.setTimeout(() => setCopyState('idle'), 2500);
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-slate-100/50 dark:bg-slate-900/40 relative scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <MessageSquare className="w-3.5 h-3.5" />
-            <span>Get Started</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
-            {t.contact.title}
-          </h2>
-          <p className="text-base text-slate-600 dark:text-slate-400">
-            {t.contact.subtitle}
-          </p>
-        </div>
+    <section
+      id="contact"
+      aria-labelledby="contact-title"
+      className="relative bg-slate-100/50 py-20 md:py-28 dark:bg-slate-900/40"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          id="contact-title"
+          eyebrow={t.contact.eyebrow}
+          icon={MessageSquare}
+          tone="emerald"
+          title={t.contact.title}
+          subtitle={t.contact.subtitle}
+        />
 
         {/* Live Availability Notice */}
-        <div className="max-w-3xl mx-auto mb-12 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-emerald-500/30 shadow-sm text-center">
-          <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
+        <div className="mx-auto mb-12 max-w-3xl rounded-2xl border border-emerald-500/30 bg-white p-4 text-center shadow-xs dark:bg-slate-900">
+          <p className="text-xs font-semibold text-slate-800 sm:text-sm dark:text-slate-200">
             {t.contact.availabilityText}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
+        <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
           {/* Main Upwork Hire Card */}
-          <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-950 text-white border border-emerald-500/40 shadow-2xl flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl border border-emerald-500/40 bg-linear-to-br from-emerald-950 via-slate-900 to-slate-950 p-8 text-white shadow-2xl sm:p-10 lg:col-span-7">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-0 right-0 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl"
+            />
 
             <div className="relative z-10 mb-8">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-400/30">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Primary Recommendation</span>
+              <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-3 py-1 text-xs font-bold tracking-wider text-emerald-300 uppercase">
+                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+                <span>{t.contact.primaryBadge}</span>
               </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">
-                {t.contact.hireDirectly}
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-                {t.contact.sendBrief}
-              </p>
+              <h3 className="mb-3 text-2xl font-black text-white sm:text-3xl">{t.contact.hireDirectly}</h3>
+              <p className="mb-6 text-sm leading-relaxed text-slate-300 sm:text-base">{t.contact.sendBrief}</p>
 
-              <div className="space-y-2.5 text-xs sm:text-sm text-slate-300">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Upwork Escrow Protection ensures funds are only released upon your approval</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Flexible milestone or weekly hourly contracts with full time tracking</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Comprehensive NDA & IP transfer guarantee upon project completion</span>
-                </div>
-              </div>
+              <ul className="space-y-2.5 text-xs text-slate-300 sm:text-sm">
+                {t.contact.upworkBullets.map((bullet) => (
+                  <li key={bullet} className="flex items-center gap-2">
+                    <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-400" aria-hidden="true" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="relative z-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-4">
+            <div className="relative z-10 flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row">
               <a
-                href={t.meta.upworkProfileUrl}
+                href={siteConfig.upworkProfileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl font-bold text-sm text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-xl shadow-emerald-500/30 transition-all hover:scale-105 active:scale-100"
+                className="inline-flex w-full items-center justify-center gap-2.5 rounded-2xl bg-emerald-400 px-8 py-4 text-sm font-bold text-slate-950 shadow-xl shadow-emerald-500/30 transition-all hover:scale-105 hover:bg-emerald-300 active:scale-100 sm:w-auto"
               >
                 <span>{t.contact.upworkCtaText}</span>
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="h-4 w-4" />
               </a>
 
-              <span className="text-xs text-slate-400">
-                Typically responds in under 2 hours
-              </span>
+              <span className="text-xs text-slate-400">{t.contact.responseTime}</span>
             </div>
           </div>
 
           {/* Direct Communication Channels Card */}
-          <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div className="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-8 shadow-xs sm:p-10 lg:col-span-5 dark:border-slate-800 dark:bg-slate-900">
             <div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                {t.contact.directContact}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6">
-                {t.contact.orDirectMessage}
-              </p>
+              <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">{t.contact.directContact}</h3>
+              <p className="mb-6 text-xs text-slate-500 sm:text-sm dark:text-slate-400">{t.contact.orDirectMessage}</p>
 
               <div className="space-y-4">
                 {/* Email Item with Copy Button */}
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
-                      <Mail className="w-5 h-5" />
+                <div className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200/60 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-800/60">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                      <Mail className="h-5 w-5" />
                     </div>
                     <div className="min-w-0">
                       <span className="block text-[11px] font-semibold text-slate-400 dark:text-slate-500">
-                        Email Address
+                        {t.contact.emailLabel}
                       </span>
                       <a
-                        href={`mailto:${t.meta.email}`}
-                        className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-brand-600 truncate block transition-colors"
+                        href={`mailto:${siteConfig.email}`}
+                        className="block truncate text-xs font-bold text-slate-900 transition-colors hover:text-brand-600 sm:text-sm dark:text-white"
                       >
-                        {t.meta.email}
+                        {siteConfig.email}
                       </a>
                     </div>
                   </div>
 
                   <button
                     onClick={handleCopyEmail}
-                    aria-label="Copy Email"
-                    className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0"
-                    title="Copy to clipboard"
+                    aria-label={t.contact.copyEmail}
+                    className="shrink-0 rounded-xl p-2 text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:hover:bg-slate-700 dark:hover:text-white"
+                    title={t.contact.copyEmail}
                   >
-                    {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                    {copyState === 'copied' ? (
+                      <Check className="h-4 w-4 text-emerald-500" aria-hidden="true" />
+                    ) : (
+                      <Copy className="h-4 w-4" aria-hidden="true" />
+                    )}
                   </button>
                 </div>
 
                 {/* Phone / WhatsApp Item */}
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200/60 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-800/60">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                      <Phone className="w-5 h-5" />
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                      <Phone className="h-5 w-5" />
                     </div>
                     <div>
                       <span className="block text-[11px] font-semibold text-slate-400 dark:text-slate-500">
-                        Phone / WhatsApp
+                        {t.contact.phoneLabel}
                       </span>
                       <a
-                        href={`tel:${t.meta.phone.replace(/\s+/g, '')}`}
-                        className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 transition-colors"
+                        href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
+                        className="text-xs font-bold text-slate-900 transition-colors hover:text-emerald-600 sm:text-sm dark:text-white"
                       >
-                        {t.meta.phone}
+                        {siteConfig.phone}
                       </a>
                     </div>
                   </div>
@@ -152,48 +154,50 @@ export const Contact: React.FC = () => {
                 {/* Social Links Row */}
                 <div className="grid grid-cols-2 gap-3 pt-2">
                   <a
-                    href={t.meta.githubUrl}
+                    href={siteConfig.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 transition-colors"
+                    className="flex items-center gap-2.5 rounded-2xl border border-slate-200/60 bg-slate-50 p-3.5 text-xs font-bold text-slate-700 transition-colors hover:border-slate-400 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300"
                   >
-                    <Github className="w-4 h-4" />
-                    <span>github.com/darsa999</span>
+                    <GithubIcon className="h-4 w-4" />
+                    <span>{siteConfig.githubHandle}</span>
                   </a>
 
                   <a
-                    href={t.meta.linkedinUrl}
+                    href={siteConfig.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:border-slate-400 transition-colors"
+                    className="flex items-center gap-2.5 rounded-2xl border border-slate-200/60 bg-slate-50 p-3.5 text-xs font-bold text-slate-700 transition-colors hover:border-slate-400 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300"
                   >
-                    <Linkedin className="w-4 h-4 text-blue-500" />
-                    <span>LinkedIn Profile</span>
+                    <LinkedinIcon className="h-4 w-4 text-blue-500" />
+                    <span>{t.contact.linkedinLabel}</span>
                   </a>
                 </div>
-
               </div>
             </div>
 
-            {copiedEmail && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold text-center"
-              >
-                {t.contact.copySuccess}
-              </motion.div>
-            )}
+            {/* Always mounted so screen readers announce the result of the copy action */}
+            <div role="status" aria-live="polite">
+              {copyState !== 'idle' && (
+                <m.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mt-4 rounded-xl border p-2 text-center text-xs font-bold ${
+                    copyState === 'copied'
+                      ? 'border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+                      : 'border-amber-500/20 bg-amber-500/10 text-amber-700 dark:text-amber-400'
+                  }`}
+                >
+                  {copyState === 'copied' ? t.contact.copySuccess : t.contact.copyFailed}
+                </m.p>
+              )}
+            </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
-              <span className="text-[11px] text-slate-400 dark:text-slate-500">
-                Location: Tbilisi, Georgia (UTC+4) · Open to asynchronous & overlapping hours
-              </span>
+            <div className="mt-6 border-t border-slate-100 pt-4 text-center dark:border-slate-800">
+              <span className="text-[11px] text-slate-500 dark:text-slate-400">{t.contact.locationNote}</span>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

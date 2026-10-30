@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Locale } from '../types';
+import type { Locale } from '../types';
 import { ChevronDown, Check, Globe } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
-const languages: { code: Locale; shortCode: string; label: string; flag: string }[] = [
-  { code: 'ka', shortCode: 'KA', label: 'ქართული', flag: '🇬🇪' },
-  { code: 'en', shortCode: 'EN', label: 'English', flag: '🇺🇸' },
-  { code: 'ru', shortCode: 'RU', label: 'Русский', flag: '🌐' },
+// Emoji flags render as plain letters on Windows, so the short code is the visual marker.
+const languages: { code: Locale; shortCode: string; label: string }[] = [
+  { code: 'ka', shortCode: 'KA', label: 'ქართული' },
+  { code: 'en', shortCode: 'EN', label: 'English' },
+  { code: 'ru', shortCode: 'RU', label: 'Русский' },
 ];
 
 interface LanguageSwitcherProps {
@@ -15,11 +16,13 @@ interface LanguageSwitcherProps {
 }
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ isMobile = false }) => {
-  const { locale, setLocale } = useLanguage();
+  const { locale, setLocale, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuId = isMobile ? 'language-menu-mobile' : 'language-menu';
 
-  const activeLanguage = languages.find((lang) => lang.code === locale) || languages[0];
+  const activeLanguage = languages.find((lang) => lang.code === locale) ?? languages[0];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
@@ -31,6 +34,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ isMobile = f
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsOpen(false);
+        triggerRef.current?.focus();
       }
     };
 
@@ -50,39 +54,33 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ isMobile = f
   const handleSelectLanguage = (code: Locale) => {
     setLocale(code);
     setIsOpen(false);
+    triggerRef.current?.focus();
   };
 
   return (
     <div ref={dropdownRef} className={`relative ${isMobile ? 'w-full' : 'inline-block'}`}>
       <button
+        ref={triggerRef}
         type="button"
         onClick={(e) => {
           e.stopPropagation();
           setIsOpen((prev) => !prev);
         }}
-        aria-haspopup="listbox"
         aria-expanded={isOpen}
-        aria-label="Select language"
-        className={`flex items-center justify-between gap-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 hover:border-brand-500/40 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 shadow-sm ${
-          isMobile
-            ? 'w-full min-h-[44px] px-3.5 py-2.5 text-sm font-semibold'
-            : 'px-3 py-2 text-xs font-semibold'
+        aria-controls={menuId}
+        aria-label={`${t.nav.selectLanguage}: ${activeLanguage.label}`}
+        className={`flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-slate-100 text-slate-700 shadow-xs transition-all duration-200 hover:border-brand-500/40 hover:text-brand-600 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-slate-700/60 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:text-brand-400 ${
+          isMobile ? 'min-h-[44px] w-full px-3.5 py-2.5 text-sm font-semibold' : 'px-3 py-2 text-xs font-semibold'
         }`}
       >
         <span className="flex items-center gap-2">
-          <Globe className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
-          <span className="text-sm leading-none" aria-hidden="true">
-            {activeLanguage.flag}
-          </span>
-          <span className="tracking-wide font-bold">{activeLanguage.shortCode}</span>
-          {isMobile && (
-            <span className="text-slate-500 dark:text-slate-400 font-medium">
-              ({activeLanguage.label})
-            </span>
-          )}
+          <Globe className="h-3.5 w-3.5 shrink-0 text-slate-500 dark:text-slate-400" aria-hidden="true" />
+          <span className="font-bold tracking-wide">{activeLanguage.shortCode}</span>
+          {isMobile && <span className="font-medium text-slate-500 dark:text-slate-400">({activeLanguage.label})</span>}
         </span>
         <ChevronDown
-          className={`w-3.5 h-3.5 text-slate-500 dark:text-slate-400 transition-transform duration-200 shrink-0 ${
+          aria-hidden="true"
+          className={`h-3.5 w-3.5 shrink-0 text-slate-500 transition-transform duration-200 dark:text-slate-400 ${
             isOpen ? 'rotate-180 text-brand-600 dark:text-brand-400' : ''
           }`}
         />
@@ -90,51 +88,50 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ isMobile = f
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            role="listbox"
-            aria-label="Language options"
+          <m.ul
+            id={menuId}
             initial={{ opacity: 0, y: -6, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.96 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className={`z-[60] mt-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-900/10 dark:shadow-black/40 p-1.5 backdrop-blur-xl ${
-              isMobile ? 'w-full relative' : 'absolute right-0 min-w-[160px]'
+            className={`z-[60] mt-2 rounded-xl border border-slate-200/90 bg-white p-1.5 shadow-xl shadow-slate-900/10 dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/40 ${
+              isMobile ? 'relative w-full' : 'absolute right-0 min-w-[160px] origin-top-right'
             }`}
           >
             {languages.map((lang) => {
               const isActive = locale === lang.code;
               return (
-                <button
-                  key={lang.code}
-                  type="button"
-                  role="option"
-                  aria-selected={isActive}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleSelectLanguage(lang.code);
-                  }}
-                  className={`w-full flex items-center justify-between gap-2.5 rounded-lg transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
-                    isMobile ? 'px-3.5 py-2.5 text-sm min-h-[44px]' : 'px-3 py-2 text-xs'
-                  } ${
-                    isActive
-                      ? 'bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 font-bold'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/80 font-medium'
-                  }`}
-                >
-                  <span className="flex items-center gap-2.5">
-                    <span className="text-base leading-none" aria-hidden="true">
-                      {lang.flag}
+                <li key={lang.code}>
+                  <button
+                    type="button"
+                    lang={lang.code}
+                    aria-current={isActive ? 'true' : undefined}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectLanguage(lang.code);
+                    }}
+                    className={`flex w-full items-center justify-between gap-2.5 rounded-lg transition-colors duration-150 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-500 ${
+                      isMobile ? 'min-h-[44px] px-3.5 py-2.5 text-sm' : 'px-3 py-2 text-xs'
+                    } ${
+                      isActive
+                        ? 'bg-brand-500/10 font-bold text-brand-600 dark:bg-brand-500/15 dark:text-brand-400'
+                        : 'font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800/80'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="rounded-sm bg-slate-100 px-1.5 py-0.5 text-[11px] font-semibold tracking-wider text-slate-500 uppercase dark:bg-slate-800 dark:text-slate-400">
+                        {lang.shortCode}
+                      </span>
+                      <span>{lang.label}</span>
                     </span>
-                    <span>{lang.label}</span>
-                    <span className="text-[11px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-semibold">
-                      {lang.shortCode}
-                    </span>
-                  </span>
-                  {isActive && <Check className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" />}
-                </button>
+                    {isActive && (
+                      <Check className="h-4 w-4 shrink-0 text-brand-600 dark:text-brand-400" aria-hidden="true" />
+                    )}
+                  </button>
+                </li>
               );
             })}
-          </motion.div>
+          </m.ul>
         )}
       </AnimatePresence>
     </div>

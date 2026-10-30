@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Locale, LocaleContent } from '../types';
-import { defaultLocale, localesData } from '../data/portfolioData';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import type { Locale, LocaleContent } from '../types';
+import { defaultLocale, isLocale, loadLocale } from '../data/portfolioData';
 
 interface LanguageContextType {
   locale: Locale;
@@ -12,43 +12,64 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const STORAGE_KEY = 'portfolio_locale';
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY) as Locale;
-      if (saved && (saved === 'ka' || saved === 'en' || saved === 'ru')) {
-        return saved;
-      }
-    } catch {
-      // Ignore localStorage read errors
-    }
-    return defaultLocale;
-  });
+/** `?lang=en` (shareable, used by hreflang links) wins over the saved choice. */
+export const getInitialLocale = (): Locale => {
+  try {
+    const fromUrl = new URLSearchParams(window.location.search).get('lang');
+    if (isLocale(fromUrl)) return fromUrl;
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (isLocale(saved)) return saved;
+  } catch {
+    // Ignore localStorage read errors
+  }
+  return defaultLocale;
+};
 
-  const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
+const setMetaContent = (selector: string, content: string) => {
+  document.querySelector(selector)?.setAttribute('content', content);
+};
+
+interface LanguageProviderProps {
+  initialLocale: Locale;
+  initialContent: LocaleContent;
+  children: React.ReactNode;
+}
+
+export const LanguageProvider: React.FC<LanguageProviderProps> = ({ initialLocale, initialContent, children }) => {
+  const [state, setState] = useState({ locale: initialLocale, t: initialContent });
+
+  const setLocale = useCallback((newLocale: Locale) => {
     try {
       localStorage.setItem(STORAGE_KEY, newLocale);
     } catch {
       // Ignore localStorage write errors
     }
-  };
+    loadLocale(newLocale)
+      .then((t) => setState({ locale: newLocale, t }))
+      .catch(() => {
+        // A failed chunk fetch (offline, stale deploy) keeps the current language on screen.
+      });
+  }, []);
+
+  const { locale, t } = state;
 
   useEffect(() => {
     document.documentElement.lang = locale;
-  }, [locale]);
+    document.title = t.seo.title;
+    setMetaContent('meta[name="description"]', t.seo.description);
+    setMetaContent('meta[property="og:title"]', t.seo.title);
+    setMetaContent('meta[property="og:description"]', t.seo.description);
 
-  const value: LanguageContextType = {
-    locale,
-    setLocale,
-    t: localesData[locale],
-  };
+    // Keep a shared link pointing at the language being viewed, without adding history entries.
+    const url = new URL(window.location.href);
+    if (locale === defaultLocale) url.searchParams.delete('lang');
+    else url.searchParams.set('lang', locale);
+    window.history.replaceState(window.history.state, '', url);
+  }, [locale, t]);
 
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  const value = useMemo(() => ({ locale, setLocale, t }), [locale, setLocale, t]);
+
+  return <LanguageContext value={value}>{children}</LanguageContext>;
 };
 
 export const useLanguage = (): LanguageContextType => {

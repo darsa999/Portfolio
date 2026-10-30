@@ -1,16 +1,25 @@
 import { LocaleContent } from '../../types';
 
 export const ka: LocaleContent = {
+  seo: {
+    title: 'მამუკა დარსალია | Lead Full-Stack & Automation Engineer',
+    description:
+      'მამუკა დარსალია — Lead Full-Stack ინჟინერი თბილისიდან. React 19, Tailwind CSS v4, TypeScript, n8n ავტომატიზაცია და AI-Augmented დეველოპმენტი. ხელმისაწვდომია Upwork-ზე.',
+  },
   meta: {
     name: 'მამუკა დარსალია',
     title: 'Lead Full-Stack & Automation Engineer · AI-Augmented Developer',
     location: 'თბილისი, საქართველო',
     status: 'ღიაა ახალი შეკვეთებისა და პროექტებისთვის',
-    upworkProfileUrl: 'https://www.upwork.com/freelancers/~019edc26589108bdab',
-    githubUrl: 'https://github.com/darsa999',
-    linkedinUrl: 'https://www.linkedin.com/in/mamuka-darsalia-665505318/',
-    email: 'darsaliamamuka9@gmail.com',
-    phone: '+995 555 97 97 08',
+    city: 'თბილისი, საქართველო',
+    timezone: 'UTC+4',
+  },
+  common: {
+    available: 'ხელმისაწვდომი',
+    skipToContent: 'მთავარ შინაარსზე გადასვლა',
+    githubProfile: 'GitHub პროფილი',
+    linkedinProfile: 'LinkedIn პროფილი',
+    upworkProfile: 'Upwork პროფილი',
   },
   nav: {
     about: 'ჩემ შესახებ',
@@ -21,18 +30,32 @@ export const ka: LocaleContent = {
     contact: 'კონტაქტი',
     hireUpwork: 'დამიქირავეთ Upwork-ზე',
     viewWork: 'ნამუშევრები',
+    brandTagline: 'Lead Full-Stack · AI-Augmented',
+    mainNavLabel: 'მთავარი ნავიგაცია',
+    openMenu: 'მენიუს გახსნა',
+    closeMenu: 'მენიუს დახურვა',
+    selectLanguage: 'ენის არჩევა',
+  },
+  theme: {
+    dark: 'მუქი თემა',
+    light: 'ღია თემა',
+    switchToLight: 'ღიაზე გადართვა',
+    switchToDark: 'მუქზე გადართვა',
   },
   hero: {
     badge: '🚀 ხელმისაწვდომია Upwork პროექტებისთვის & სრულ განაკვეთზე',
     greeting: 'მოგესალმებით, მე ვარ',
     name: 'მამუკა დარსალია',
     roleHeadline: 'Lead Full-Stack & Automation Engineer · AI-Augmented Developer',
-    subheadline: 'ვაპროექტებ და ვქმნი მაღალტექნოლოგიურ ვებ-აპლიკაციებს უახლესი React 19-ისა და Tailwind CSS v4-ის ბაზაზე. AI-Augmented მიდგომებით (Antigravity, Claude Code) და ბიზნეს ავტომატიზაციებით (n8n, Python) პროდუქტის მიწოდების სისწრაფეს 3-5-ჯერ ვზრდი.',
+    subheadline:
+      'ვაპროექტებ და ვქმნი მაღალტექნოლოგიურ ვებ-აპლიკაციებს უახლესი React 19-ისა და Tailwind CSS v4-ის ბაზაზე. AI-Augmented მიდგომებით (Antigravity, Claude Code) და ბიზნეს ავტომატიზაციებით (n8n, Python) პროდუქტის მიწოდების სისწრაფეს 3-5-ჯერ ვზრდი.',
     ctaPrimary: 'დამიქირავეთ Upwork-ზე',
     ctaSecondary: 'პროექტების დათვალიერება',
     ctaGithub: 'GitHub პროფილი',
     ctaContact: 'დამიკავშირდით',
     availableBadge: 'მზად ვარ ახალი თანამშრომლობისთვის',
+    trustBadge: 'Upwork Escrow დაცვა · ეტაპობრივი მიწოდების 100% გარანტია',
+    photoAlt: 'მამუკა დარსალიას პორტრეტი',
     quickStats: [
       { value: '6+', label: 'წლიანი პრაქტიკული გამოცდილება' },
       { value: '3-5x', label: 'სისწრაფე AI-Augmented მეთოდოლოგიით' },
@@ -43,7 +66,8 @@ export const ka: LocaleContent = {
   upworkSection: {
     badge: '💎 რატომ ირჩევენ საერთაშორისო კლიენტები ჩემს სერვისს Upwork-ზე',
     title: 'უმაღლესი ხარისხის კოდი, სწრაფი მიწოდება და გამჭვირვალე კომუნიკაცია',
-    description: 'როგორც AI-Augmented Full-Stack ინჟინერი, მე არ ვწერ მხოლოდ კოდს — მე ვქმნი ბიზნესის მომტან გადაწყვეტილებებს. პროექტების დაწყებიდან დასრულებამდე უზრუნველვყოფ სრულ გამჭვირვალობას, გარანტირებულ ვადებს და პროფესიულ პასუხისმგებლობას.',
+    description:
+      'როგორც AI-Augmented Full-Stack ინჟინერი, მე არ ვწერ მხოლოდ კოდს — მე ვქმნი ბიზნესის მომტან გადაწყვეტილებებს. პროექტების დაწყებიდან დასრულებამდე უზრუნველვყოფ სრულ გამჭვირვალობას, გარანტირებულ ვადებს და პროფესიულ პასუხისმგებლობას.',
     perksTitle: 'ჩემი კლიენტის გარანტიები:',
     perks: [
       {
@@ -72,12 +96,27 @@ export const ka: LocaleContent = {
     guaranteeText: '✓ 100% კმაყოფილების გარანტია · ✓ ფიქსირებული ან საათობრივი ტარიფი Upwork Escrow-ით',
   },
   about: {
+    eyebrow: 'პროფილი და ხედვა',
     title: 'ჩემ შესახებ',
     subtitle: 'პროფესიული გზა, საინჟინრო ფილოსოფია და ღირებულებები',
     bioParagraphs: [
       'ინოვაციებზე ორიენტირებული Full-Stack და Frontend ინჟინერი 6-წლიანი პრაქტიკული გამოცდილებით თანამედროვე ვებ-აპლიკაციების, კომპლექსური არქიტექტურისა და ავტომატიზაციების შექმნაში.',
       'სპეციალიზებული ვარ AI-Augmented Development მიდგომებში (Antigravity, Claude Code), რაც საშუალებას მაძლევს 3-5-ჯერ დავაჩქარო განვითარების სასიცოცხლო ციკლი და არქიტექტურული გადაწყვეტილებების სისწრაფე. ვფლობ უახლეს ტექნოლოგიურ სტეკს (React 19, Tailwind CSS v4, Angular, TypeScript) და მაქვს უწყვეტი ბიზნეს-ავტომატიზაციების (n8n, Python pipelines) მდიდარი გამოცდილება.',
       'ამჟამად ვმუშაობ როგორც Lead Full-Stack & Automation Engineer კომპანია „ინვესტ მედიქალ ჯორჯია“-ში, სადაც ნულიდან დავაპროექტე ციფრული ეკოსისტემა და სრულად ავაწყე სოციალური მედიისა და მონაცემთა შეგროვების ავტომატური მილსადენები.',
+    ],
+    highlights: [
+      'React 19 & Tailwind CSS v4 სპეციალისტი',
+      'AI-Augmented დეველოპმენტი (3-5x სისწრაფე)',
+      'n8n, Python & ბიზნეს ავტომატიზაცია',
+      'თავისუფლად: ქართული, რუსული & ინგლისური',
+    ],
+    overviewTitle: 'მოკლე მიმოხილვა',
+    overview: [
+      { label: 'მდებარეობა', value: 'თბილისი, საქართველო' },
+      { label: 'გამოცდილება', value: '6+ წელი' },
+      { label: 'მიმდინარე როლი', value: 'Lead Full-Stack Eng.' },
+      { label: 'Upwork სტატუსი', value: 'ხელმისაწვდომი', live: true },
+      { label: 'დროის სარტყელი', value: 'UTC+4 (მოქნილი)' },
     ],
     coreValues: [
       {
@@ -116,6 +155,8 @@ export const ka: LocaleContent = {
     ],
   },
   skills: {
+    eyebrow: 'ოსტატობა & ინსტრუმენტები',
+    coreTag: 'ძირითადი',
     title: 'ტექნოლოგიური სტეკი & ინსტრუმენტები',
     subtitle: 'უახლესი Frontend არქიტექტურა, AI-ხელსაწყოები და ბიზნეს ავტომატიზაცია',
     aiCallout: {
@@ -123,13 +164,28 @@ export const ka: LocaleContent = {
       title: 'განვითარების 3-5x დაჩქარება Google Antigravity-სა და Claude Code-ით',
       desc: 'თანამედროვე აგენტური AI ინსტრუმენტების ყოველდღიურ სამუშაო პროცესში ინტეგრაციით, პროექტის არქიტექტურა, ტესტირება და რეალიზაცია სრულდება საგრძნობლად მოკლე დროში უმაღლესი ხარისხის სტანდარტების დაცვით.',
     },
+    velocity: {
+      title: '⚡ სისწრაფის მეტრიკა',
+      primary: '3-5x სწრაფი გაშვება ბაზარზე',
+      secondary: 'არქიტექტურული რეგრესიის თითქმის ნულოვანი დონე',
+    },
     categories: [
       {
         title: 'Frontend არქიტექტურა',
         icon: 'Layout',
         skills: [
-          { name: 'React 19', level: 'Expert', featured: true, description: 'Server Components, Hooks, React Compiler' },
-          { name: 'Tailwind CSS v4', level: 'Expert', featured: true, description: 'Next-gen CSS engine, modern design tokens' },
+          {
+            name: 'React 19',
+            level: 'Expert',
+            featured: true,
+            description: 'Server Components, Hooks, React Compiler',
+          },
+          {
+            name: 'Tailwind CSS v4',
+            level: 'Expert',
+            featured: true,
+            description: 'Next-gen CSS engine, modern design tokens',
+          },
           { name: 'TypeScript', level: 'Advanced', featured: true, description: 'მკაცრი ტიპიზაცია, Clean Interfaces' },
           { name: 'Vite', level: 'Expert', featured: true, description: 'Lightning-fast HMR, build optimization' },
           { name: 'Angular', level: 'Proficient', description: 'Enterprise modules & component patterns' },
@@ -143,11 +199,30 @@ export const ka: LocaleContent = {
         title: 'AI & Agentic ხელსაწყოები',
         icon: 'Bot',
         skills: [
-          { name: 'Google Antigravity', level: 'Advanced', featured: true, description: 'Autonomous agent orchestration & tools' },
-          { name: 'Claude Code', level: 'Advanced', featured: true, description: 'Agentic coding, CLI automation, refactoring' },
+          {
+            name: 'Google Antigravity',
+            level: 'Advanced',
+            featured: true,
+            description: 'Autonomous agent orchestration & tools',
+          },
+          {
+            name: 'Claude Code',
+            level: 'Advanced',
+            featured: true,
+            description: 'Agentic coding, CLI automation, refactoring',
+          },
           { name: 'Gemini Gems', level: 'Advanced', description: 'Custom tuned AI personas for architecture' },
-          { name: 'Prompt Engineering', level: 'Expert', description: 'Context curation, few-shot prompting, system prompts' },
-          { name: 'Agentic Workflows', level: 'Advanced', featured: true, description: 'Multi-agent pipelines, memory, tool calls' },
+          {
+            name: 'Prompt Engineering',
+            level: 'Expert',
+            description: 'Context curation, few-shot prompting, system prompts',
+          },
+          {
+            name: 'Agentic Workflows',
+            level: 'Advanced',
+            featured: true,
+            description: 'Multi-agent pipelines, memory, tool calls',
+          },
           { name: 'LLM APIs', level: 'Advanced', description: 'OpenAI, Anthropic, Gemini API integration' },
         ],
       },
@@ -155,8 +230,18 @@ export const ka: LocaleContent = {
         title: 'ავტომატიზაცია & Backend',
         icon: 'Terminal',
         skills: [
-          { name: 'n8n Workflows', level: 'Expert', featured: true, description: 'Complex automated node pipelines & webhooks' },
-          { name: 'Python', level: 'Advanced', featured: true, description: 'Automation scripts, data scraping, processing' },
+          {
+            name: 'n8n Workflows',
+            level: 'Expert',
+            featured: true,
+            description: 'Complex automated node pipelines & webhooks',
+          },
+          {
+            name: 'Python',
+            level: 'Advanced',
+            featured: true,
+            description: 'Automation scripts, data scraping, processing',
+          },
           { name: 'Node.js / Express', level: 'Advanced', description: 'REST APIs, middleware, serverless functions' },
           { name: 'Web Scraping', level: 'Advanced', description: 'Cheerio, Puppeteer, Beautiful Soup' },
           { name: 'EasyOCR', level: 'Intermediate', description: 'Computer vision, automated text extraction' },
@@ -168,7 +253,12 @@ export const ka: LocaleContent = {
         title: '3D, დიზაინი & სისტემები',
         icon: 'Layers',
         skills: [
-          { name: 'Three.js / React Three Fiber', level: 'Intermediate', featured: true, description: '3D WebGL scenes, interactive canvas' },
+          {
+            name: 'Three.js / React Three Fiber',
+            level: 'Intermediate',
+            featured: true,
+            description: '3D WebGL scenes, interactive canvas',
+          },
           { name: 'Figma', level: 'Advanced', description: 'Design systems, UI prototyping, handoff' },
           { name: 'Git & GitHub', level: 'Expert', description: 'GitFlow, CI/CD Actions, semantic commits' },
           { name: 'Linux / macOS', level: 'Advanced', description: 'Bash/Zsh scripting, server administration' },
@@ -178,9 +268,11 @@ export const ka: LocaleContent = {
     ],
   },
   experience: {
+    eyebrow: 'კარიერული ეტაპები',
     title: 'სამუშაო გამოცდილება',
     subtitle: 'რეალური ბიზნეს-გამოცდილება, ლიდერობა და ტექნიკური მიღწევები',
     presentTag: 'დღემდე',
+    currentTag: 'მიმდინარე წამყვანი როლი',
     items: [
       {
         id: 'invest-medical',
@@ -190,7 +282,8 @@ export const ka: LocaleContent = {
         location: 'თბილისი, საქართველო',
         type: 'სრული განაკვეთი (Full-time)',
         isCurrent: true,
-        summary: 'კომპანიის ციფრული ეკოსისტემის სრული ტექნიკური ხელმძღვანელობა, თანამედროვე ვებ-პლატფორმის აგება ნულიდან და ბიზნეს ავტომატიზაციების დანერგვა.',
+        summary:
+          'კომპანიის ციფრული ეკოსისტემის სრული ტექნიკური ხელმძღვანელობა, თანამედროვე ვებ-პლატფორმის აგება ნულიდან და ბიზნეს ავტომატიზაციების დანერგვა.',
         bullets: [
           'Full-Stack პლატფორმა: კომპანიის ციფრული ეკოსისტემის ნულიდან დაპროექტება და დანერგვა უახლესი ტექნოლოგიებით (React 19, Vite, Tailwind CSS v4).',
           'ავტომატიზაცია: სოციალური მედიის პოსტინგის, მომხმარებელთა ჩართულობისა და მონაცემთა შეგროვების ავტომატური მილსადენების აგება n8n-ისა და custom Python/Node სკრიპტებით.',
@@ -206,7 +299,8 @@ export const ka: LocaleContent = {
         period: '01/2024 – 06/2025',
         location: 'საერთაშორისო / ჰიბრიდული',
         type: 'სრული განაკვეთი',
-        summary: 'მასშტაბირებადი ვებ-ინტერფეისების შემუშავება თანამედროვე JavaScript ეკოსისტემითა და Component-driven მიდგომით საერთაშორისო პროდუქტებისთვის.',
+        summary:
+          'მასშტაბირებადი ვებ-ინტერფეისების შემუშავება თანამედროვე JavaScript ეკოსისტემითა და Component-driven მიდგომით საერთაშორისო პროდუქტებისთვის.',
         bullets: [
           'მასშტაბირებადი ვებ-ინტერფეისების შემუშავება თანამედროვე JavaScript ეკოსისტემითა და Component-driven მიდგომით.',
           'RESTful API-ების ინტეგრაცია, State Management-ის ოპტიმიზაცია და Core Web Vitals-ის გაუმჯობესება 95+ ქულამდე.',
@@ -221,7 +315,8 @@ export const ka: LocaleContent = {
         period: '01/2022 – 12/2023',
         location: 'თბილისი / დისტანციური',
         type: 'კონტრაქტი / სრული',
-        summary: 'მაღალი დატვირთვის მქონე ციფრული პროდუქტების UI კომპონენტების დაპროექტება და რეაქტიულობის უზრუნველყოფა.',
+        summary:
+          'მაღალი დატვირთვის მქონე ციფრული პროდუქტების UI კომპონენტების დაპროექტება და რეაქტიულობის უზრუნველყოფა.',
         bullets: [
           'მაღალი დატვირთვის ციფრული პროდუქტების UI კომპონენტების დაპროექტება და რეაქტიულობის უზრუნველყოფა.',
           'Cross-browser / Cross-device თავსებადობის გარანტირება, პერფორმანსის ოპტიმიზაცია და კოდის რეფაქტორინგი.',
@@ -247,6 +342,7 @@ export const ka: LocaleContent = {
     ],
   },
   projects: {
+    eyebrow: 'ქეის-სტადები',
     title: 'გამორჩეული პროექტები (Case Studies)',
     subtitle: 'რეალური ციფრული პროდუქტები: პრობლემა, არქიტექტურა, ჩემი როლი და გაზომვადი შედეგი',
     viewCaseStudy: 'ქეის-სტადის ნახვა',
@@ -257,6 +353,7 @@ export const ka: LocaleContent = {
     challengeTitle: 'პრობლემა და გამოწვევა',
     solutionTitle: 'არქიტექტურული გადაწყვეტა',
     contributionsTitle: 'ჩემი კონკრეტული წვლილი',
+    closeCaseStudy: 'ქეის-სტადის დახურვა',
     items: [
       {
         id: 'gestlife',
@@ -274,8 +371,10 @@ export const ka: LocaleContent = {
           { label: 'First Contentful Paint', value: '< 0.4s' },
           { label: 'UI Reusability', value: '100%' },
         ],
-        problem: 'კომპანიას სჭირდებოდა უახლეს ტექნოლოგიურ სტანდარტებზე აგებული, ელვისებურად სწრაფი სერვისების პლატფორმა, რომელიც უზრუნველყოფდა ინტუიციურ ნავიგაციას, სრულ მობილურ ადაპტაციას და მარტივად გასაფართოებელ კოდურ ბაზას.',
-        solution: 'პლატფორმა აიგო React 19-ისა და Tailwind CSS v4-ის უახლეს ბაზაზე Vite-თან ერთად. შეიქმნა მკაცრად ტიპიზირებული კომპონენტური სისტემა, ოპტიმიზირდა ყველა რესურსი და დაინერგა Vercel Edge დეპლოიმენტი.',
+        problem:
+          'კომპანიას სჭირდებოდა უახლეს ტექნოლოგიურ სტანდარტებზე აგებული, ელვისებურად სწრაფი სერვისების პლატფორმა, რომელიც უზრუნველყოფდა ინტუიციურ ნავიგაციას, სრულ მობილურ ადაპტაციას და მარტივად გასაფართოებელ კოდურ ბაზას.',
+        solution:
+          'პლატფორმა აიგო React 19-ისა და Tailwind CSS v4-ის უახლეს ბაზაზე Vite-თან ერთად. შეიქმნა მკაცრად ტიპიზირებული კომპონენტური სისტემა, ოპტიმიზირდა ყველა რესურსი და დაინერგა Vercel Edge დეპლოიმენტი.',
         myContribution: [
           'არქიტექტურის ნულიდან დაპროექტება React 19-ისა და Tailwind CSS v4-ით.',
           'კომპონენტური ბიბლიოთეკის აგება სრული ხელმისაწვდომობისა (WCAG) და SEO სტანდარტების დაცვით.',
@@ -299,8 +398,10 @@ export const ka: LocaleContent = {
           { label: 'Mobile Bounce Rate', value: '-42%' },
           { label: 'Guest Usability Score', value: '4.9/5' },
         ],
-        problem: 'ტრადიციული ქაღალდის მენიუები და მძიმე, მოუხერხებელი PDF ფაილები იწვევდა სტუმრების უკმაყოფილებას, ნელ მომსახურებას და მენიუს ფასების შეცვლისას ზედმეტ ხარჯებს.',
-        solution: 'შეიქმნა ულტრა-მსუბუქი, მობილურზე მორგებული ციფრული QR მენიუ. მაგიდაზე QR-ის დასკანერებით მომხმარებელი მყისიერად იღებს ინტერაქტიულ კატალოგს, კატეგორიების ფილტრაციას და ვიზუალურ პრეზენტაციას.',
+        problem:
+          'ტრადიციული ქაღალდის მენიუები და მძიმე, მოუხერხებელი PDF ფაილები იწვევდა სტუმრების უკმაყოფილებას, ნელ მომსახურებას და მენიუს ფასების შეცვლისას ზედმეტ ხარჯებს.',
+        solution:
+          'შეიქმნა ულტრა-მსუბუქი, მობილურზე მორგებული ციფრული QR მენიუ. მაგიდაზე QR-ის დასკანერებით მომხმარებელი მყისიერად იღებს ინტერაქტიულ კატალოგს, კატეგორიების ფილტრაციას და ვიზუალურ პრეზენტაციას.',
         myContribution: [
           'სწრაფი და ინტუიციური მობილური ინტერფეისის შექმნა სუფთა სემანტიკური მარკირებით.',
           'კატეგორიების რეაქტიული ფილტრაცია და კერძების დეტალური ბარათები.',
@@ -316,16 +417,16 @@ export const ka: LocaleContent = {
         featured: true,
         year: '2025 - 2026',
         role: 'Lead Automation Engineer',
-        liveUrl: 'https://github.com/darsa999',
-        githubUrl: 'https://github.com/darsa999',
         tags: ['n8n', 'Python', 'Claude Code', 'Antigravity', 'Web Scraping', 'REST APIs'],
         metrics: [
           { label: 'Manual Labor Reduction', value: '70%' },
           { label: 'Pipeline Execution', value: '24/7 Automated' },
           { label: 'Error Rate', value: '< 0.1%' },
         ],
-        problem: 'კომპანიაში სოციალური მედიის განრიგები, მომხმარებელთა მოთხოვნების დამუშავება და კონკურენტული მონაცემების შეგროვება მოითხოვდა ყოველდღიურად ათეულობით საათის რუტინულ მექანიკურ შრომას.',
-        solution: 'დავაპროექტე და ავაგე მრავალსაფეხურიანი n8n სამუშაო ნაკადები, Python-ის ვებ-სკრეიპინგ მოდულები და Claude/Antigravity AI აგენტები, რომლებმაც სრულად ავტომატურად გადაიბარეს ინფორმაციის დამუშავება და პოსტინგი.',
+        problem:
+          'კომპანიაში სოციალური მედიის განრიგები, მომხმარებელთა მოთხოვნების დამუშავება და კონკურენტული მონაცემების შეგროვება მოითხოვდა ყოველდღიურად ათეულობით საათის რუტინულ მექანიკურ შრომას.',
+        solution:
+          'დავაპროექტე და ავაგე მრავალსაფეხურიანი n8n სამუშაო ნაკადები, Python-ის ვებ-სკრეიპინგ მოდულები და Claude/Antigravity AI აგენტები, რომლებმაც სრულად ავტომატურად გადაიბარეს ინფორმაციის დამუშავება და პოსტინგი.',
         myContribution: [
           'n8n სერვერის გამართვა, ვებჰუკების ინტეგრაცია და მონაცემთა ნაკადების ვალიდაცია.',
           'Python სკრიპტების შექმნა კომპლექსური ვებ-მონაცემების მოსაპოვებლად და დასამუშავებლად.',
@@ -336,12 +437,19 @@ export const ka: LocaleContent = {
     ],
   },
   education: {
+    eyebrow: 'აკადემია & სერტიფიკატები',
     title: 'განათლება & სერტიფიკატები',
     subtitle: 'ოფიციალური კვალიფიკაცია, საერთაშორისო აკადემიები და უწყვეტი სწავლა',
     degreesTitle: 'უმაღლესი განათლება & კურსები',
     certificationsTitle: 'ოფიციალური სერტიფიცირება',
     languagesTitle: 'ენების ფლობა',
     stepVerificationBadge: 'IT Academy STEP Official Verification',
+    stepTitle: 'IT Academy STEP — Front-End ვებ-პროგრამირების სერტიფიკატი და დანართი',
+    credentialVerified: 'დადასტურებული კვალიფიკაცია',
+    verifiedYear: 'დადასტურებულია 2025',
+    commsTitle: '🌐 კომუნიკაციის გარანტია',
+    commsText:
+      'თავისუფალი ინგლისური კომუნიკაცია ვიდეო-შეხვედრებისთვის, ყოველდღიური ასინქრონული სტენდაპებისთვის, PR რევიუებისა და სპრინტის დაგეგმვისთვის.',
     items: [
       {
         id: 'skillwill',
@@ -356,7 +464,8 @@ export const ka: LocaleContent = {
         title: 'Front-End Web Programming',
         institution: 'IT Academy STEP',
         period: '2025',
-        details: 'HTML5, CSS3, Modern JavaScript, Angular, Component Architecture და ვებ-პროექტების საერთაშორისო სტანდარტები.',
+        details:
+          'HTML5, CSS3, Modern JavaScript, Angular, Component Architecture და ვებ-პროექტების საერთაშორისო სტანდარტები.',
         badge: 'Certified Graduate · 2025',
       },
       {
@@ -369,7 +478,7 @@ export const ka: LocaleContent = {
       },
       {
         id: 'university',
-        title: 'ბაკალავრის ხარისხი (Bachelor\'s Degree)',
+        title: "ბაკალავრის ხარისხი (Bachelor's Degree)",
         institution: 'თბილისის სახელმწიფო სამედიცინო უნივერსიტეტი',
         period: '2011 – 2017',
         details: 'უმაღლესი აკადემიური განათლება, კვლევითი ანალიტიკა, დისციპლინა და კომპლექსური სისტემების შესწავლა.',
@@ -383,6 +492,7 @@ export const ka: LocaleContent = {
     ],
   },
   contact: {
+    eyebrow: 'დავიწყოთ',
     title: 'დამიკავშირდით / დამიქირავეთ',
     subtitle: 'გაქვთ პროექტი ან გსურთ კონსულტაცია? მზად ვარ განვიხილო თქვენი იდეები.',
     availabilityText: '🟢 ხელმისაწვდომია: Upwork კონტრაქტები, ფიქსირებული პროექტები და Full-Time დისტანციური როლები',
@@ -393,11 +503,26 @@ export const ka: LocaleContent = {
     directContact: 'პირდაპირი საკონტაქტო არხები',
     hireDirectly: 'დამიქირავეთ Upwork-ზე',
     orDirectMessage: 'ან პირდაპირ მომწერეთ:',
-    sendBrief: 'მზად ხართ დავიწყოთ თანამშრომლობა? გამოაგზავნეთ პროექტის მოკლე აღწერა და 2-4 საათში დაგიბრუნდებით დეტალური შეფასებით.',
+    sendBrief:
+      'მზად ხართ დავიწყოთ თანამშრომლობა? გამოაგზავნეთ პროექტის მოკლე აღწერა და 2-4 საათში დაგიბრუნდებით დეტალური შეფასებით.',
+    primaryBadge: 'რეკომენდებული გზა',
+    upworkBullets: [
+      'Upwork Escrow დაცვა — თანხა გადაირიცხება მხოლოდ თქვენი დადასტურების შემდეგ',
+      'მოქნილი ეტაპობრივი ან კვირეული საათობრივი კონტრაქტები სრული დროის აღრიცხვით',
+      'NDA და ინტელექტუალური საკუთრების სრული გადაცემის გარანტია პროექტის დასრულებისას',
+    ],
+    responseTime: 'როგორც წესი, 2 საათში ვპასუხობ',
+    emailLabel: 'ელ. ფოსტა',
+    phoneLabel: 'ტელეფონი / WhatsApp',
+    linkedinLabel: 'LinkedIn პროფილი',
+    copyEmail: 'ელ. ფოსტის კოპირება',
+    copyFailed: 'კოპირება ვერ მოხერხდა — მონიშნეთ მისამართი ხელით.',
+    locationNote: 'მდებარეობა: თბილისი, საქართველო (UTC+4) · ღია ვარ ასინქრონული და გადაფარვადი საათებისთვის',
   },
   footer: {
     rights: 'ყველა უფლება დაცულია.',
     builtWith: 'შექმნილია React 19-ით, Tailwind CSS v4-ითა და Framer Motion-ით.',
     topRatedBadge: 'Upwork Top Talent Ready · AI-Augmented Engineering',
+    backToTop: 'ზემოთ ასვლა',
   },
 };

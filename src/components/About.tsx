@@ -1,181 +1,141 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ShieldCheck, Gauge, Workflow, Dumbbell, Music, Cpu, Sparkles, Award, Brain, MapPin, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Sparkles, CheckCircle2 } from 'lucide-react';
+import { m } from 'framer-motion';
+import { Icon, type IconName } from './icons';
+import { SectionHeading } from './ui/SectionHeading';
+
+// Accent colour per icon, so the locale files only have to name the icon.
+const valueIconColor: Partial<Record<IconName, string>> = {
+  ShieldCheck: 'text-brand-600 dark:text-brand-400',
+  Gauge: 'text-emerald-600 dark:text-emerald-400',
+  Workflow: 'text-cyan-600 dark:text-cyan-400',
+};
+
+const hobbyIconColor: Partial<Record<IconName, string>> = {
+  ShieldCheck: 'text-emerald-500',
+  Award: 'text-emerald-500',
+  Sparkles: 'text-indigo-500',
+  Brain: 'text-indigo-500',
+  Dumbbell: 'text-rose-500',
+  Music: 'text-indigo-500',
+  Cpu: 'text-amber-500',
+};
 
 export const About: React.FC = () => {
   const { t } = useLanguage();
 
-  const getValueIcon = (name: string) => {
-    switch (name) {
-      case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-brand-600 dark:text-brand-400" />;
-      case 'Gauge':
-        return <Gauge className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
-      case 'Workflow':
-      default:
-        return <Workflow className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
-    }
-  };
-
-  const getHobbyIcon = (name: string) => {
-    switch (name) {
-      case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-emerald-500" />;
-      case 'Award':
-        return <Award className="w-5 h-5 text-emerald-500" />;
-      case 'Sparkles':
-        return <Sparkles className="w-5 h-5 text-indigo-500" />;
-      case 'Brain':
-        return <Brain className="w-5 h-5 text-indigo-500" />;
-      case 'Dumbbell':
-        return <Dumbbell className="w-5 h-5 text-rose-500" />;
-      case 'Music':
-        return <Music className="w-5 h-5 text-indigo-500" />;
-      case 'Cpu':
-      default:
-        return <Cpu className="w-5 h-5 text-amber-500" />;
-    }
-  };
-
   return (
-    <section id="about" className="py-20 md:py-28 relative scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Profile & Mindset</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
-            {t.about.title}
-          </h2>
-          <p className="text-base text-slate-600 dark:text-slate-400">
-            {t.about.subtitle}
-          </p>
-        </div>
+    <section id="about" aria-labelledby="about-title" className="relative py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          id="about-title"
+          eyebrow={t.about.eyebrow}
+          icon={Sparkles}
+          tone="brand"
+          title={t.about.title}
+          subtitle={t.about.subtitle}
+        />
 
         {/* Top Story & Quick Details Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
-          
+        <div className="mb-16 grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
           {/* Main Bio Paragraphs */}
-          <div className="lg:col-span-8 p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="space-y-4 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs sm:p-8 lg:col-span-8 dark:border-slate-800 dark:bg-slate-900">
             {t.about.bioParagraphs.map((para, i) => (
-              <p key={i} className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p key={i} className="text-base leading-relaxed text-pretty text-slate-700 dark:text-slate-300">
                 {para}
               </p>
             ))}
 
             {/* Micro Highlights */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 border-t border-slate-100 dark:border-slate-800">
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>React 19 & Tailwind CSS v4 Specialist</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>AI-Augmented Development (3-5x Velocity)</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>n8n, Python & Workflow Automation</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>Fluent in English, Georgian & Russian</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Info Sidebar Card */}
-          <div className="lg:col-span-4 p-6 rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100/60 dark:from-slate-900 dark:to-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4">
-              Quick Overview
-            </h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400">Location</span>
-                <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-brand-500" />
-                  Tbilisi, Georgia
-                </span>
-              </li>
-              <li className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400">Total Experience</span>
-                <span className="font-semibold text-slate-900 dark:text-white">6+ Years</span>
-              </li>
-              <li className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400">Current Role</span>
-                <span className="font-semibold text-slate-900 dark:text-white text-right">Lead Full-Stack Eng.</span>
-              </li>
-              <li className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400">Upwork Status</span>
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Available Now
-                </span>
-              </li>
-              <li className="flex items-center justify-between">
-                <span className="text-slate-500 dark:text-slate-400">Timezone</span>
-                <span className="font-semibold text-slate-900 dark:text-white">UTC+4 (Flexible)</span>
-              </li>
+            <ul className="grid grid-cols-1 gap-3 border-t border-slate-100 pt-4 sm:grid-cols-2 dark:border-slate-800">
+              {t.about.highlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300"
+                >
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Quick Info Sidebar Card */}
+          <div className="rounded-3xl border border-slate-200 bg-linear-to-b from-slate-50 to-slate-100/60 p-6 shadow-xs lg:col-span-4 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950">
+            <h3 className="mb-4 text-sm font-bold tracking-wider text-slate-500 uppercase dark:text-slate-400">
+              {t.about.overviewTitle}
+            </h3>
+            <dl className="space-y-4 text-sm">
+              {t.about.overview.map((row, i) => (
+                <div
+                  key={row.label}
+                  className={`flex items-center justify-between gap-4 ${
+                    i < t.about.overview.length - 1 ? 'border-b border-slate-200 pb-3 dark:border-slate-800' : ''
+                  }`}
+                >
+                  <dt className="text-slate-500 dark:text-slate-400">{row.label}</dt>
+                  <dd
+                    className={`flex items-center gap-1.5 text-right font-semibold ${
+                      row.live ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'
+                    }`}
+                  >
+                    {row.live && (
+                      <span
+                        className="h-2 w-2 rounded-full bg-emerald-500 motion-safe:animate-pulse"
+                        aria-hidden="true"
+                      />
+                    )}
+                    {row.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
 
         {/* 3 Core Values Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {t.about.coreValues.map((val, i) => (
-            <motion.div
-              key={i}
+            <m.div
+              key={val.title}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-brand-500/40 transition-all group"
+              className="group rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs transition-all hover:-translate-y-0.5 hover:border-brand-500/40 dark:border-slate-800 dark:bg-slate-900"
             >
-              <div className="w-10 h-10 rounded-2xl bg-brand-50 dark:bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                {getValueIcon(val.icon)}
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-50 transition-transform group-hover:scale-110 dark:bg-slate-800">
+                <Icon name={val.icon} className={`h-5 w-5 ${valueIconColor[val.icon] ?? 'text-brand-500'}`} />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                {val.title}
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                {val.desc}
-              </p>
-            </motion.div>
+              <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">{val.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{val.desc}</p>
+            </m.div>
           ))}
         </div>
 
-        {/* Personal Discipline & Interests (From User's CV) */}
+        {/* Personal Discipline & Interests */}
         <div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 text-center sm:text-left flex items-center gap-2">
-            <span>{t.about.hobbiesTitle}</span>
+          <h3 className="mb-6 text-center text-xl font-bold text-slate-900 sm:text-left dark:text-white">
+            {t.about.hobbiesTitle}
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {t.about.hobbies.map((hobby, i) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {t.about.hobbies.map((hobby) => (
               <div
-                key={i}
-                className="p-6 rounded-2xl bg-slate-100/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-start gap-4"
+                key={hobby.title}
+                className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-100/60 p-6 dark:border-slate-800 dark:bg-slate-900/60"
               >
-                <div className="p-3 rounded-xl bg-white dark:bg-slate-800 shadow-sm shrink-0">
-                  {getHobbyIcon(hobby.icon)}
+                <div className="shrink-0 rounded-xl bg-white p-3 shadow-xs dark:bg-slate-800">
+                  <Icon name={hobby.icon} className={`h-5 w-5 ${hobbyIconColor[hobby.icon] ?? 'text-indigo-500'}`} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
-                    {hobby.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {hobby.desc}
-                  </p>
+                  <h4 className="mb-1 text-sm font-bold text-slate-900 dark:text-white">{hobby.title}</h4>
+                  <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-400">{hobby.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
