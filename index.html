@@ -1,26 +1,139 @@
-<!DOCTYPE html>
-<html lang="ka" class="scroll-smooth">
+<!doctype html>
+<html lang="ka" class="dark" style="color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m18 16 4-4-4-4'/><path d='m6 8-4 4 4 4'/><path d='m14.5 4-5 16'/></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mamuka Darsalia | Lead Full-Stack & Automation Engineer</title>
-    <meta name="description" content="Portfolio of Mamuka Darsalia — Lead Full-Stack Engineer, React 19 & Tailwind CSS v4 Specialist, and AI-Augmented Developer. Delivering 3-5x development velocity for top-tier clients." />
-    <meta name="keywords" content="Mamuka Darsalia, Full-Stack Developer, Frontend Architect, React 19, Tailwind CSS v4, n8n Automation, Antigravity, Claude Code, Upwork Top Freelancer" />
+
+    <!-- Apply the saved theme before first paint (no flash). Mirrors ThemeContext: dark unless "light" was chosen. -->
+    <script>
+      try {
+        if (localStorage.getItem('portfolio_theme') === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    </script>
+
+    <title>მამუკა დარსალია | Lead Full-Stack & Automation Engineer</title>
+    <meta
+      name="description"
+      content="მამუკა დარსალია — Lead Full-Stack ინჟინერი თბილისიდან. React 19, Tailwind CSS v4, TypeScript, n8n ავტომატიზაცია და AI-Augmented დეველოპმენტი. ხელმისაწვდომია Upwork-ზე."
+    />
     <meta name="author" content="Mamuka Darsalia" />
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://portfolio-pi-rosy-22.vercel.app/" />
+    <link rel="alternate" hreflang="ka" href="https://portfolio-pi-rosy-22.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://portfolio-pi-rosy-22.vercel.app/?lang=en" />
+    <link rel="alternate" hreflang="ru" href="https://portfolio-pi-rosy-22.vercel.app/?lang=ru" />
+    <link rel="alternate" hreflang="x-default" href="https://portfolio-pi-rosy-22.vercel.app/" />
+
+    <!-- Icons & PWA metadata -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#020617" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Mamuka Darsalia — Portfolio" />
+    <meta property="og:url" content="https://portfolio-pi-rosy-22.vercel.app/" />
     <meta property="og:title" content="Mamuka Darsalia | Lead Full-Stack & Automation Engineer" />
-    <meta property="og:description" content="AI-Augmented Full-Stack Engineer specializing in React 19, Tailwind v4, and automated business workflows." />
-    <meta property="og:image" content="/profile.jpg" />
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta
+      property="og:description"
+      content="Lead Full-Stack Engineer from Tbilisi. React 19, Tailwind CSS v4, TypeScript, n8n automation and AI-augmented development. Available for hire on Upwork."
+    />
+    <meta property="og:image" content="https://portfolio-pi-rosy-22.vercel.app/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mamuka Darsalia — Lead Full-Stack & Automation Engineer" />
+    <meta property="og:locale" content="ka_GE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="profile:first_name" content="Mamuka" />
+    <meta property="profile:last_name" content="Darsalia" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mamuka Darsalia | Lead Full-Stack & Automation Engineer" />
+    <meta
+      name="twitter:description"
+      content="React 19, Tailwind CSS v4, TypeScript, n8n automation and AI-augmented development. Available for hire on Upwork."
+    />
+    <meta name="twitter:image" content="https://portfolio-pi-rosy-22.vercel.app/images/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Mamuka Darsalia — Lead Full-Stack & Automation Engineer" />
+
+    <!-- Start fetching the LCP portrait in parallel with the JS bundle -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset="/images/profile-320.avif 320w, /images/profile-640.avif 640w"
+      imagesizes="(min-width: 768px) 384px, (min-width: 640px) 320px, 288px"
+      fetchpriority="high"
+    />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://portfolio-pi-rosy-22.vercel.app/#person",
+            "name": "Mamuka Darsalia",
+            "alternateName": ["მამუკა დარსალია", "Мамука Дарсалия"],
+            "jobTitle": "Lead Full-Stack & Automation Engineer",
+            "url": "https://portfolio-pi-rosy-22.vercel.app/",
+            "image": "https://portfolio-pi-rosy-22.vercel.app/images/profile-640.jpg",
+            "email": "mailto:darsaliamamuka9@gmail.com",
+            "worksFor": { "@type": "Organization", "name": "Invest Medical Georgia" },
+            "address": { "@type": "PostalAddress", "addressLocality": "Tbilisi", "addressCountry": "GE" },
+            "knowsLanguage": ["ka", "ru", "en"],
+            "knowsAbout": [
+              "React",
+              "TypeScript",
+              "Tailwind CSS",
+              "Vite",
+              "Angular",
+              "Node.js",
+              "Python",
+              "n8n",
+              "Workflow automation",
+              "AI-augmented software development"
+            ],
+            "alumniOf": [
+              { "@type": "EducationalOrganization", "name": "IT Academy STEP" },
+              { "@type": "EducationalOrganization", "name": "Tbilisi State Medical University" }
+            ],
+            "sameAs": [
+              "https://github.com/darsa999",
+              "https://www.linkedin.com/in/mamuka-darsalia-665505318/",
+              "https://www.upwork.com/freelancers/~019edc26589108bdab"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://portfolio-pi-rosy-22.vercel.app/#website",
+            "url": "https://portfolio-pi-rosy-22.vercel.app/",
+            "name": "Mamuka Darsalia — Portfolio",
+            "inLanguage": ["ka", "en", "ru"],
+            "about": { "@id": "https://portfolio-pi-rosy-22.vercel.app/#person" }
+          }
+        ]
+      }
+    </script>
   </head>
-  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+  <body
+    class="bg-slate-50 font-sans text-slate-900 antialiased transition-colors duration-300 selection:bg-brand-500 selection:text-white dark:bg-slate-950 dark:text-slate-100"
+  >
+    <noscript>
+      <p style="padding: 2rem; text-align: center">
+        Mamuka Darsalia — Lead Full-Stack &amp; Automation Engineer.
+        <a href="https://www.upwork.com/freelancers/~019edc26589108bdab">Upwork</a> ·
+        <a href="https://github.com/darsa999">GitHub</a> ·
+        <a href="mailto:darsaliamamuka9@gmail.com">darsaliamamuka9@gmail.com</a>
+      </p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://portfolio-pi-rosy-22.vercel.app/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://portfolio-pi-rosy-22.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-pi-rosy-22.vercel.app/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://portfolio-pi-rosy-22.vercel.app/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-pi-rosy-22.vercel.app/" />
+  </url>
+  <url>
+    <loc>https://portfolio-pi-rosy-22.vercel.app/?lang=en</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://portfolio-pi-rosy-22.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-pi-rosy-22.vercel.app/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://portfolio-pi-rosy-22.vercel.app/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-pi-rosy-22.vercel.app/" />
+  </url>
+  <url>
+    <loc>https://portfolio-pi-rosy-22.vercel.app/?lang=ru</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://portfolio-pi-rosy-22.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-pi-rosy-22.vercel.app/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://portfolio-pi-rosy-22.vercel.app/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-pi-rosy-22.vercel.app/" />
+  </url>
+</urlset>
