@@ -1,49 +1,68 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Self-hosted variable fonts: Inter covers Latin + Cyrillic, Noto Sans Georgian covers Mkhedruli.
+   Each file is split by unicode-range, so a visitor only downloads the scripts on the page. */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/noto-sans-georgian/wght.css';
+@import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand-950: #1e1b4b;
+
+  --font-sans:
+    'Inter Variable', 'Noto Sans Georgian Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+*/
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
-
-  /* Custom subtle scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-400 dark:bg-slate-600;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
 }
 
-@layer utilities {
-  .glass-card {
-    @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 shadow-sm transition-all duration-300;
+@utility text-gradient {
+  @apply bg-linear-to-r from-brand-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent dark:from-brand-400 dark:via-indigo-300 dark:to-cyan-400;
+}
+
+@layer base {
+  html {
+    scrollbar-color: var(--color-slate-300) transparent;
   }
 
-  .glass-card-hover {
-    @apply hover:border-brand-500/50 dark:hover:border-brand-500/50 hover:shadow-lg hover:shadow-brand-500/5 dark:hover:shadow-brand-500/10 transition-all duration-300;
+  html.dark {
+    scrollbar-color: var(--color-slate-700) transparent;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-600 via-indigo-500 to-cyan-500 dark:from-brand-400 dark:via-indigo-300 dark:to-cyan-400;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
-  .gradient-border {
-    position: relative;
-    border-radius: 1rem;
-    background: linear-gradient(to right, #6366f1, #06b6d4);
-    padding: 1px;
+  /* Section anchors land below the fixed header */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  :focus-visible {
+    outline-color: var(--color-brand-500);
   }
 }
